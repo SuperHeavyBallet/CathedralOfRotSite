@@ -1,0 +1,183 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/*#region CSS RESET*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*#endregion RegionName*/
+
+
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+    
+    
+    min-height: 90vh; /* <-- Important: forces body to at least fill full height */
+}
+
+.title{
+    color: wheat;
+    font-size: x-large;
+    padding: 2rem;
+}
+
+.sub-title{
+    color: wheat;
+    font-size: large;
+    padding: 1rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.horizontal-list{
+    
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    width: 30rem;
+    
+}
+
+.page-link{
+    color: wheat;
+    font-size: large;
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 6rem;
+    border: 1px solid wheat;
+    text-align: center;
+    
+}
+
+.page-link:hover{
+    cursor: pointer;
+    color: red;
+}
+
+
+footer{
+    
+    color: wheat;
+    font-size: medium;
+    padding: 1rem;
+}
+
+.main-container{
+  
+    display: flex;
+    flex-direction: row;
+    border: 1px solid wheat;
+}
+
+.left-list{
+    margin-bottom: 1.5rem;
+}
+.left-list h4{
+    color: wheat;
+    text-align: right;
+    padding: 0.5rem;
+    
+}
+
+
+li{
+    color: wheat;
+    margin: 0.5rem;
+}
+
+.right-display{
+    color: wheat;
+    margin: 0.5rem;
+    
+}
+
+.about-section, 
+.archives-section, 
+.support-section{
+    border: 1px solid wheat;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+.left-area{
+    color: wheat;
+    border-right: 1px solid wheat;
+    padding: 1rem;
+    flex: 1;
+}
+
+.right-area{
+    color: wheat;
+    flex: 4;
+    padding: 1rem;
+    text-align: center;
+ 
+}
+
+.right-area h5{
+    text-align: end;
+    padding: 2rem;
+}
+
+.text-area{
+    padding: 4rem 2rem;
+}
+
+.text-area p{
+    text-align: start;
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+}
