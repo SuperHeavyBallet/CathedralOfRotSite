@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "category": "Academic Work",
+        "title": "On The Superiority of Dwarvs",
+        "content": "<p>In this entry into the Grand Compendium of Dwarven Superiority Vol III, I will explain and support through scientific methods why exactly the Dwarv Organism is naturally superior to all offshoots of Dwarg type creatures.</p><p>First, we shall start with the names...</p>"
+      },
+      {
+        "id": 2,
+        "category": "Academic Work",
+        "title": "The Song That Calls the Rot",
+        "content": "<p>The mountain sang, and from the rot there came creatures of strange design...</p>"
+      },
+      {
+        "id": 3,
+        "category": "Mapping and Clarifications",
+        "title": "From Earth To Root - A Rough Guide To Descending",
+        "content": "<p>Descending is not merely digging. One must listen to the stones...</p>"
+      },
+      {
+        "id": 4,
+        "category": "Mapping and Clarifications",
+        "title": "The Stones of Our Mountain",
+        "content": "<p>Each stone has a name, and the mountain remembers...</p>"
+      },
+      {
+        "id": 5,
+        "category": "Tales & Found Words",
+        "title": "Echoes of the Thrallborne",
+        "content": "<p>When the Thrallborne marched, they left behind only whispers...</p>"
+      },
+      {
+        "id": 6,
+        "category": "Tales & Found Words",
+        "title": "The Last Mumbles of a Witless Dorf",
+        "content": "<p>Before he fell into the chasm, the witless Dorf was heard to mutter these words...</p>"
+      }
+]

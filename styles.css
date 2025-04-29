@@ -181,3 +181,20 @@ li{
     margin-bottom: 1rem;
     line-height: 1.5rem;
 }
+
+.index-banner{
+    border: 1px solid wheat;
+    color: wheat;
+    padding: 1rem;
+ width: 30rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.index-banner h3,
+.index-banner h4,
+.index-banner p
+{
+    margin: 0.5rem;
+}
