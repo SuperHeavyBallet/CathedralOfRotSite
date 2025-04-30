@@ -198,3 +198,12 @@ li{
 {
     margin: 0.5rem;
 }
+
+.left-list li:hover{
+    cursor: pointer;
+    
+}
+
+.text-area p:hover{
+    color: white;
+}
