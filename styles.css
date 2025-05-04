@@ -122,11 +122,14 @@ footer{
 
 .left-list{
     margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid wheat;
 }
 .left-list h4{
     color: wheat;
     text-align: right;
     padding: 0.5rem;
+    font-style: oblique;
     
 }
 
@@ -180,6 +183,8 @@ li{
     text-align: start;
     margin-bottom: 1rem;
     line-height: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .index-banner{
@@ -201,9 +206,22 @@ li{
 
 .left-list li:hover{
     cursor: pointer;
+    color: white;
     
 }
 
 .text-area p:hover{
-    color: white;
+    color: black;
+    background-color: wheat;
+}
+
+.disabled-link{
+    pointer-events: none;
+    color: gray;
+    cursor: default;
+    text-decoration: underline;
+}
+
+.copyright-text{
+    color: wheat;
 }
