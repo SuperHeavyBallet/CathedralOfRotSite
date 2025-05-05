@@ -3,16 +3,57 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initial Setup
 
     let archivesData = [];
+    
+
+    const list_AcademicWork = document.getElementById("list_AcademicWork");
+    const list_Mapping = document.getElementById("list_Mapping");
+    const list_Tales = document.getElementById("list_Tales");
+    const list_Creatures = document.getElementById("list_Creatures");
+    const list_Groups = document.getElementById("list_Groups");
+
+    const archiveTitle = document.getElementById("archiveTitle");
+    const archiveCategory = document.getElementById("archiveCategory");
+    const archiveTextArea = document.getElementById("archiveTextArea");
+    const archiveCredit = document.getElementById("archiveCredit");
+
     FetchArchivesContent();
 
-    let list_AcademicWork = document.getElementById("list_AcademicWork");
-    let list_Mapping = document.getElementById("list_Mapping");
-    let list_Tales = document.getElementById("list_Tales");
+    const list_Title_AcademicWork = document.getElementById("list-title-academic");
+    const list_Title_Mapping = document.getElementById("list-title-mapping");
+    const list_Title_Tales = document.getElementById("list-title-tales");
+    const list_Title_Creatues = document.getElementById("list-title-creatures");
+    const list_Title_Groups = document.getElementById("list-title-groups");
 
-    let archiveTitle = document.getElementById("archiveTitle");
-    let archiveCategory = document.getElementById("archiveCategory");
-    let archiveTextArea = document.getElementById("archiveTextArea");
-    let archiveCredit = document.getElementById("archiveCredit");
+    const listTitles = [
+        list_Title_AcademicWork,
+        list_Title_Mapping,
+        list_Title_Tales,
+        list_Title_Creatues,
+        list_Title_Groups
+    ];
+
+    let list_Elements_AcademicWork = [];
+    let list_Elements_Mapping = [];
+    let list_Elements_Tales = [];
+    let list_Elements_Creatures = [];
+    let list_Elements_Groups = [];
+    
+    AddClickEventstoArrayElements(listTitles, "click");
+
+    
+
+    function AddClickEventstoArrayElements(array, eventType)
+    {
+        array.forEach(element =>
+            {
+                element.addEventListener(eventType, (e) =>{
+                    e.preventDefault();
+                    const list = element.nextElementSibling;
+                    list.classList.toggle("hidden");
+                })
+            })
+
+    }
 
    
 
@@ -30,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function() {
             PopulateList(list_AcademicWork, "Academic Work");
             PopulateList(list_Mapping, "Mapping and Clarifications");
             PopulateList(list_Tales, "Tales & Found Words");
+            PopulateList(list_Creatures, "Creatures");
+            PopulateList(list_Groups, "Groups");
 
             FillArticle(archivesData[0]);
 

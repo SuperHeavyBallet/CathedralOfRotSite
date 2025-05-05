@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    let copyrightText = document.getElementById("copyright-text");
-    let baseCopyrightText = "Copyright © 2025 Alexander Gorham. All content and associated intellectual property are protected."
-    copyrightText.textContent = baseCopyrightText;
+    // Change Per User - Name and The Copyright Text Container Element
     
-    
+    const copyrightText = document.getElementById("copyright-text");
+    const personName = copyrightText?.dataset.author || "Your Name";
 
-    CopyrightUpdateGenerator();
+    CopyrightUpdateGenerator(personName);
 
-    function CopyrightUpdateGenerator()
+    function CopyrightUpdateGenerator(name)
     {
-        let currentYear;
-        const date = new Date();
-        let year = date.getFullYear();
-        currentYear = year.toString();
-        copyrightText.textContent = `Copyright ${year} Alexander Gorham. All content and associated intellectual property are protected.`;
+        const year = new Date().getFullYear();
+        const message = `Copyright © ${year} ${name}. All content and associated intellectual property are protected.`;
+        if (copyrightText) {
+            copyrightText.textContent = message;
+        } else {
+            console.warn("Copyright element not found.");
+        }
     }
 });

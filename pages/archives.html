@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archives</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="../javascript/common.js"></script>
-    <script src="../javascript/archives.js"></script>
+    <script src="/javascript/common.js"></script>
+    <script src="/javascript/archives.js"></script>
+    <script src="/javascript/colorTheme.js"></script>
 </head>
 <body>
 
@@ -23,24 +24,50 @@
             <a href="/pages/archives.html" class="page-link disabled-link" id="archives-page-link" aria-current="page">Archives</a>
             <a href="/pages/about.html" class="page-link" id="about-page-link">About</a>
             <a href="/pages/support.html" class="page-link" id="support-page-link">Support</a>
+            <button class="toggle-color-theme" id="toggle-color-theme">☀</button>
         </div>
 
         <div class="archives-section">
             <div class="left-area">
-            <ul class="left-list" id="list_AcademicWork">
-                <h4>Academic Work</h4>
+            <div class="left-list" >
+                <h4 id="list-title-academic" class="list-title">Academic Work</h4>
+                <ul id="list_AcademicWork">
 
-            </ul>
+                </ul>
 
-            <ul class="left-list" id="list_Mapping">
-                <h4>Mapping and Clarifications</h4>
+            </div>
+
+            <div class="left-list" >
+                <h4 id="list-title-mapping" class="list-title">Mapping and Clarifications</h4>
+                <ul id="list_Mapping">
+
+                </ul>
+
        
-            </ul>
+            </div>
 
-            <ul class="left-list" id="list_Tales">
-                <h4>Tales & Found Words</h4>
-       
-            </ul>
+            <div class="left-list">
+                <h4 id="list-title-tales" class="list-title">Tales & Found Words</h4>
+                <ul id="list_Tales">
+
+                </ul>
+            </div>
+
+            <div class="left-list" >
+                <h4 id="list-title-creatures" class="list-title">Creatures</h4>
+                <ul id="list_Creatures">
+
+                </ul>
+            </div>
+
+            <div class="left-list">
+                <h4 id="list-title-groups" class="list-title">Groups</h4>
+                <ul  id="list_Groups">
+
+                </ul>
+            </div>
+
+
         </div>
             
             <div class="right-area">
@@ -49,7 +76,7 @@
                 <div class="text-area" id="archiveTextArea">
                 
                 </div>
-                <p id="archiveCredit"></p>
+                <p id="archiveCredit" class="archive-credit"></p>
             </div>
 
         </div>
@@ -57,7 +84,7 @@
 
 </body>
 <footer>
-    <div></div>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.
-    <div class="copyright-text" id="copyright-text"></div>
+    <p>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.</p>
+    <p class="copyright-text" id="copyright-text" data-author="Alexander Gorham">Copyright ©. All content and associated intellectual property are protected.</p>
 </footer>
 </html>

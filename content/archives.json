@@ -149,7 +149,7 @@
       },
       {
         "id": 9,
-        "category": "Mapping and Clarifications",
+        "category": "Groups",
         "title": "The Blind Goblins",
         "content": [
             "Overview of the blind goblins, charting individuals potential threat"
@@ -203,6 +203,151 @@
             "The Dreamfungus visually is quite prominent, with a large white cap, adorned with a variety of colored spots according to its exact species. Variations of effect across different strains have not been noted, with most users simply describing different tastes from each."
         ],
         "credit" : "Markus Brehn - Notes on the Cave Contents."
+      },
+      {
+        "id": 11,
+        "category": "Groups",
+        "title": "Dwargs, Dwarvs, Dwarfs & Dorfs",
+        "content": [
+            "Overview of the Dwarg Descendants, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 12,
+        "category": "Groups",
+        "title": "The Skarn",
+        "content": [
+            "Overview of The Skarn, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 13,
+        "category": "Groups",
+        "title": "The Skeevers",
+        "content": [
+            "Overview of The Skeevers, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 14,
+        "category": "Groups",
+        "title": "The Mountain Moles",
+        "content": [
+            "Overview of The Mountain Moles, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 15,
+        "category": "Groups",
+        "title": "The Thrallborne",
+        "content": [
+            "Overview of The Thrallborne, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 15,
+        "category": "Groups",
+        "title": "The Elders",
+        "content": [
+            "Overview of The Elders, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 16,
+        "category": "Creatures",
+        "title": "Stoneslugs",
+        "content": [
+            "Overview of the Stoneslug, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 17,
+        "category": "Creatures",
+        "title": "Borebugs",
+        "content": [
+            "Overview of the Borebug, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 18,
+        "category": "Creatures",
+        "title": "Whitespiders",
+        "content": [
+            "Overview of the Whitespider, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 19,
+        "category": "Creatures",
+        "title": "Blackspiders",
+        "content": [
+            "Overview of the Blackspider, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 20,
+        "category": "Creatures",
+        "title": "Wallwisp",
+        "content": [
+            "Overview of the Wallwisp, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 21,
+        "category": "Creatures",
+        "title": "Rockcrawler",
+        "content": [
+            "Overview of the Rockcrawler, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 22,
+        "category": "Creatures",
+        "title": "Glowbugs",
+        "content": [
+            "Overview of the Glowbug, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 23,
+        "category": "Creatures",
+        "title": "Deepfur",
+        "content": [
+            "Overview of the Deepfur, charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 24,
+        "category": "Creatures",
+        "title": "Fallclaw",
+        "content": [
+            "Overview of the Fallclaw charting individuals potential threat"
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": 24,
+        "category": "Tales & Found Words",
+        "title": "Dwarv Slurs",
+        "content": [
+            "Overview of the Dwarv Slurs."
+        ],
+        "credit" : "Unknown"
       }
+    
     
 ]
