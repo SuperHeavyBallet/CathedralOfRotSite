@@ -1,22 +1,27 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleElement = document.getElementById("toggle-color-theme");
+    const lightImage = "☀";
+    const darkImage = "⏾";
 
-    const toggleElement = document.getElementById("toggle-color-theme")
-    const lightImage = "☀"
-    const darkImage = "⏾"
-    
-    toggleElement.addEventListener('click', (e) =>{
-        e.preventDefault();
+    // Set correct icon after load
+if (document.documentElement.classList.contains("light-theme")) {
+    toggleElement.textContent = darkImage;
+} else {
+    toggleElement.textContent = lightImage;
+}
 
-        document.body.classList.toggle("light-theme");
+toggleElement.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        if(toggleElement.textContent === lightImage)
-        {
-            toggleElement.textContent = darkImage;
-        }
-        else if(toggleElement.textContent === darkImage)
-        {
-            toggleElement.textContent = lightImage;
-        }
-    })
+    const isLight = document.documentElement.classList.toggle("light-theme");
+
+    if (isLight) {
+        localStorage.setItem("theme", "light");
+        toggleElement.textContent = darkImage;
+    } else {
+        localStorage.setItem("theme", "dark");
+        toggleElement.textContent = lightImage;
+    }
+})
 
 })

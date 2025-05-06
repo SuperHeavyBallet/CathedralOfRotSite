@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/styles.css">
     <script src="/javascript/common.js"></script>
     <script src="/javascript/archives.js"></script>
+    <script>
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+            document.documentElement.classList.add("light-theme");
+        }
+    </script>
     <script src="/javascript/colorTheme.js"></script>
 </head>
 <body>

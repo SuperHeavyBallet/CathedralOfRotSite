@@ -30,11 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
     }
 
-    function AddClickEvent(element, eventType)
-    {
-        
-
-    }
+  
     // Change Per User - Name and The Copyright Text Container Element
     
     const copyrightText = document.getElementById("copyright-text");

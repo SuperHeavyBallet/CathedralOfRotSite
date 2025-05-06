@@ -42,5 +42,17 @@
     {
         "id" : "11",
         "quote" : "The Rotless City. Untouched by Death and equally by Life."
+    },
+    {
+        "id" : "12",
+        "quote" : "Under the mountain, night is eternal. We can but hold torches to delay it."
+    },
+    {
+        "id" : "13",
+        "quote" : "Your rotting corpse will survive longer than you."
+    },
+    {
+        "id" : "14",
+        "quote" : "I jump from the peak so that I may find my roots."
     }
 ]
