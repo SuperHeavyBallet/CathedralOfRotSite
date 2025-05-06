@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archives</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <script src="/javascript/common.js"></script>
     <script src="/javascript/archives.js"></script>
     <script src="/javascript/colorTheme.js"></script>
@@ -13,8 +13,10 @@
 
 
     <h2 class="title">
-        Welcome To The Cathedral of Rot.
+        Welcome To The Cathedral of Rot
         </h2>
+
+        <p id="random-quote" class="random-quote">-</p>
 
         <h3 class="sub-title">
             Where Will You Go?
@@ -28,18 +30,22 @@
         </div>
 
         <div class="archives-section">
+            
             <div class="left-area">
+                <h4 class="left-list-title-top">Archive Categories</h4>
             <div class="left-list" >
-                <h4 id="list-title-academic" class="list-title">Academic Work</h4>
-                <ul id="list_AcademicWork">
+                
+
+                <h4 id="list-title-academic" class="list-title"><span class="arrow">◄ </span>Academic Work</h4>
+                <ul id="list_AcademicWork" class="hidden">
 
                 </ul>
 
             </div>
 
             <div class="left-list" >
-                <h4 id="list-title-mapping" class="list-title">Mapping and Clarifications</h4>
-                <ul id="list_Mapping">
+                <h4 id="list-title-mapping" class="list-title"><span class="arrow">◄ </span>Mapping and Clarifications</h4>
+                <ul id="list_Mapping" class="hidden">
 
                 </ul>
 
@@ -47,22 +53,22 @@
             </div>
 
             <div class="left-list">
-                <h4 id="list-title-tales" class="list-title">Tales & Found Words</h4>
-                <ul id="list_Tales">
+                <h4 id="list-title-tales" class="list-title"><span class="arrow">◄ </span>Tales & Found Words</h4>
+                <ul id="list_Tales" class="hidden">
 
                 </ul>
             </div>
 
             <div class="left-list" >
-                <h4 id="list-title-creatures" class="list-title">Creatures</h4>
-                <ul id="list_Creatures">
+                <h4 id="list-title-creatures" class="list-title"><span class="arrow">◄ </span>Creatures</h4>
+                <ul id="list_Creatures" class="hidden">
 
                 </ul>
             </div>
 
             <div class="left-list">
-                <h4 id="list-title-groups" class="list-title">Groups</h4>
-                <ul  id="list_Groups">
+                <h4 id="list-title-groups" class="list-title"><span class="arrow">◄ </span>Groups</h4>
+                <ul  id="list_Groups" class="hidden">
 
                 </ul>
             </div>
@@ -71,8 +77,8 @@
         </div>
             
             <div class="right-area">
-                <h5 id="archiveCategory"></h5>
-                <h4 id="archiveTitle"></h4>
+                <h5 id="archiveCategory" class="archive-category"></h5>
+                <h3 id="archiveTitle" class="archive-title"></h3>
                 <div class="text-area" id="archiveTextArea">
                 
                 </div>

@@ -4,7 +4,7 @@
         "category": "Academic Work",
         "title": "On The Superiority of Dwarvs",
         "content": [
-            "In this entry into the Grand Compendium of Dwarven Superiority Vol III, I will explain and support through scientific methods why exactly the Dwarv Organism is naturally superior to all other offshoots of Dwarg type creatures.",
+            "In this entry into the Grand Compendium of Dwarven Superiority Vol III, I will explain and support through scientific methods why exactly the Dwarv organism is naturally superior to all other offshoots of Dwarg type creatures.",
             "First, we shall start with the names. It is apparent that there is a single character difference between the name Dwarv and Dwarf (Dorf is not included, because that is not a real word nor name). ",
             "Clearly, the “V” and the “f” characters mark the drastic difference between the types of creatures. The “V” is a character directly traceable back to Dwarg cave runes. (You can see that the Dwarv and the Cave both clearly share that character as much as they share heritage). With this simple fact, it is evident that the Dwarv alone is the direct descendant of the older people, while the Dwarf, lacking the “V” is in fact not.",
             "Conversely, the Dwarf (and Dorf) were not blessed by this ancient lineage. Instead their names are formed with crude, likely Goblin rooted guttural utterings. I speak of course, of the “f” character. Note that I use the inferior version, not the superior “F”, as even though that larger character is superior, it is still not a V, and never actually features in the Dwarf name, so implicitly even there, the Dwarf is by necessity, an inferior creature.",
@@ -29,7 +29,7 @@
             "The rot consumes, we breathe the fumes, and so it leads, we must assume.",
             "The master burns, The master boils, We fuel his fire, We pour his oils.",
             "A quiet shout, A whispered yell, The master hears, And all is well.",
-            "- A Common Rock Hugger Chant",
+            "- A common Rock Hugger chant (Translated from Rocktongue)",
             "The Rock Huggers are a small village of oddly intelligent creatures, some grotesque mix of Goblin and Dwarf blood. By all normal standards, they seem to be vile, twisted parodies of life that really have no place existing, yet they persist. Many attempts have been made to extinguish their blight on existence, but they scurry away each time into endless networks of hidden tunnels and holes bored into the mountain walls that surround their cave.",
             "Their chief problem is that they endlessly worship the Rotten Stone, forever chanting and calling out to it, with their twisting whispers echoing down corridors of rock and shadows, often trickling out into other societies elsewhere in the mountain. This is the time that most of those societies will organise cleansing marches through the depths, realising that they cannot extinguish the Rock Huggers properly, but they can at least hold off their summoning chant, for it is well known what will happen if the Rotten Stone hears their corrupted calls.",
             "The Rock Huggers are perhaps not intelligent per se. They are ritualistic and barbarously cunning. They worship the Rotting Stone and the decay it promises well enough. However, they are unaware that as they chant their merry little tunes, the sharp rocks of their endless tunnels warp their brutish sounds into an unintelligible mountain language, which then gains the ability to pierce through rock and summon even more terrible creatures to crawl out through the shadows and drag any living thing below into the dark.",
@@ -340,13 +340,46 @@
         "credit" : "Unknown"
       },
       {
-        "id": 24,
+        "id": 25,
         "category": "Tales & Found Words",
         "title": "Dwarv Slurs",
         "content": [
             "Overview of the Dwarv Slurs."
         ],
         "credit" : "Unknown"
+      },
+      {
+        "id": 26,
+        "category": "Groups",
+        "title": "The Word-Keeps",
+        "content": [
+            "A distinct sub-sect of Dwarv lineage who long ago became consumed by the act of recording knowledge.",
+            "In the early ages, when the Dwarvs merely scraped a survival in the dark corners of caves, while the Dwargs ruled with an unbreachable iron hand, the Word-Keeps stood out, being the only Dwarvs to truly pay attention to the ways in which the mountain whispered, hearing the quiet mumblings of the Great Stones and carving their words into the rocks.",
+            "Those words proved to be the undoing of the Dwarvs. When the last letter was cut into the mountain, the Quiet Stone shivered, sending earthquakes deep through the bed of the mountain, collapsing entire Dwarv civilisations upon themselves, burying all under rock and ash, except for the few outside of the stronghold at the time.",
+            "After that, the Dwarvs had very little forces keeping them pressed into their caves, eventually seeing them expand out into the rubble to claim it for themselves.",
+            "Next, after a few more centuries, the Skarn arrived. And with them, they brought true knowledge and ideas from the upper world. This both excited and infuriated the early Word-Keeps, since it provided them with immensely more data to chronicle, but also exposed how vastly little they knew of the now larger world.",
+            "And so, since then they have quietly, endlessly kept their ever growing logs.",
+            "They do not merely archive. They fastidiously preserve any information possible through the compulsive transcription of every observable detail, through written notes in rock, on parchment, on skin, in thought, through echo-collection or any other method they can use to lock information into a tangible form.",
+            "Their clothing is simple, as they have no desire nor need for fanciful dress. The sole purpose of all Word-Keeps is to learn and log, anything else is a distraction that prevents them from discovery of their ultimate truth: The Final Word.",
+            "It is believed that only by complete annihilation of doubt and question can that ultimate truth be revealed. At this time, the keepers of that Final Word will be unquestionably comparable to Gods, simply because they are aware of all the knowledge required to be a God.",
+            "The group is relatively few, yet they seem to be everywhere in the mountain’s shadows, watching, taking note of every twitch, blink, or breath — with an intensity that renders the act of observation almost hostile, with the vast majority of that detail being utterly useless to anybody. But, for some, there will undoubtedly be some drastically important note hidden away in a scroll buried beneath a mountain of others, yet finding it will be almost impossible, for the Word-Keeps only take notes, they do not organise them.",
+            "Enclaves exist in remote areas under the mountain, typically overseeing larger chasms and reachable only across narrow pathways."
+          
+        ],
+        "credit" : "'When the Final Word is spoken, the mountain shall fall silent.' – Quillmaw, 1st of the Word-Keeps"
+      },
+      {
+        "id": 27,
+        "category": "Mapping and Clarifications",
+        "title": "The Rotless City",
+        "content": [
+           "'The Rotless City. Untouched by Death and equally by Life.'",
+           "The bastion of the Elders in their time. A massive, ornate city built from unknown, impenetrable white rocks, rising high beneath the mountain below a canopy of immortal Lightfungus. It is thought that the light from these gives everlife to the stones of the city.",
+           "Overrun now by Rotfungus, yet entirely unconsumed, with neither group willing to concede, held in an unending stasis between decay and magnificence.",
+           "Uninhabitable by ordinary creatures due to the Rotfungus presence, but haunted by the empty husks of the Thrallborne guardians, patrolling through the endless twists and turns within the city unwaveringly, without conceivable drive or direction.",
+           "The only known path lies through the heart of the Great Chasm — an unnatural descent, followed by a nine-day crawl through a silent tunnel carpeted with the desiccated remains of those who dared to seek the city."
+        ],
+        "credit" : "Markus Brehn – Visions Recovered from the Lightfungus Chasm"
       }
     
     

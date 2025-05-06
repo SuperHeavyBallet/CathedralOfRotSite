@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -49,7 +52,7 @@ table {
 }
 /*#endregion RegionName*/
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
 
 :root{
     --dark-bg-color: 	#161411;
@@ -69,6 +72,11 @@ table {
     --light-border-color: #d0c3ad;
     
 }
+
+html {
+    overflow-y: scroll;
+  }
+
 body{
     background-color: var(--dark-bg-color);
     color: var(--dark-text-color);
@@ -81,7 +89,7 @@ body{
     
     min-height: 90vh; /* <-- Important: forces body to at least fill full height */
 
-    font-family: 'EB Garamond', serif;
+    font-family: 'Cardo', serif;
     font-optical-sizing: auto;
     font-weight: 400; /* or 500/600 if you want a bolder base look */
     font-style: normal;
@@ -91,11 +99,22 @@ body{
 
     transition: background-color 0.5s;
     transition: color 0.5s;
+
+    background: 
+    linear-gradient(45deg, rgba(90, 82, 82, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(117, 117, 112, 0.03) 25%, transparent 25%),
+    var(--dark-bg-color);
+    background-size: 40px 40px;
 }
 
 body.light-theme{
     background-color: var(--light-bg-color);
     color: var(--light-text-color);
+    background: 
+    linear-gradient(45deg, rgba(31, 28, 28, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(49, 49, 48, 0.03) 25%, transparent 25%),
+    var(--light-bg-color);
+    background-size: 40px 40px;
 }
 
 .title{
@@ -108,12 +127,17 @@ body.light-theme .title {
     color: var(--light-text-color);
 }
 
+.random-quote:hover{
+    cursor: pointer;
+
+}
+
 
 
 .sub-title{
     color: var(--dark-text-color);
     font-size: large;
-    padding: 1rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
 }
 body.light-theme .sub-title{
     color: var(--light-text-color);
@@ -130,7 +154,7 @@ a{
     
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
     width: 30rem;
     
 }
@@ -240,6 +264,10 @@ body.light-theme  .support-section{
     border: 1px solid var(--light-border-color);
 }
 
+.archive-title{
+    font-size: large;
+}
+
 .archive-credit{
     display: flex;
     flex-direction: column;
@@ -249,12 +277,26 @@ body.light-theme  .support-section{
     line-height: 1.5rem;
 }
 
+.archive-category{
+    font-style: oblique;
+}
+
 
 .left-area{
     color: var(--dark-text-color);
     border-right: 1px solid var(--dark-border-color);
     padding: 1rem;
     flex: 1;
+}
+
+.about-profile-pic{
+    max-width: 100%;
+    border: 1px solid var(--dark-accent-color);
+}
+
+.about-profile-title{
+    text-align: center;
+    padding: 1rem;
 }
 
 body.light-theme  .left-area{
@@ -281,17 +323,17 @@ body.light-theme .right-area{
 }
 
 .text-area{
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 .text-area p{
     text-align: start;
     margin-bottom: 1rem;
     line-height: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0.5rem;
     border-radius: 5px;
-    transition: background-color 0.25s;
+    transition: background-color 0.25s ease-in-out;
+
 
 }
 
@@ -319,6 +361,11 @@ body.light-theme .index-banner{
     margin: 0.5rem;
 }
 
+.left-list-title-top{
+    text-align: left;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--dark-border-color);
+}
 .left-list li:hover{
     cursor: pointer;
     color: var(--dark-text-hover-color);
@@ -329,8 +376,10 @@ body.light-theme .left-list li:hover{
 }
 
 .text-area p:hover{
-    color: var(--dark-text-color);
-    background-color: var(--dark-accent-color);
+    color: var(--light-text-color);
+    background-color: var(--dark-text-color);
+
+
  
 }
 body.light-theme p:hover{
@@ -405,4 +454,18 @@ body.light-theme .toggle-color-theme:hover  {
 }
 body.light-theme .list-title:hover{
     color: var(--light-text-hover-color);
+}
+
+
+.support-text-block{
+    border-bottom: 1px solid var(--dark-border-color);
+    margin-bottom: 2rem;
+}
+
+.body.light-theme .support-text-block{
+    border-bottom: 1px solid var(--light-border-color);
+}
+
+.support-text-block h4{
+    padding-bottom: 2rem;
 }

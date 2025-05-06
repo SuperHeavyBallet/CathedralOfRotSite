@@ -32,16 +32,13 @@ document.addEventListener("DOMContentLoaded", function() {
         list_Title_Groups
     ];
 
-    let list_Elements_AcademicWork = [];
-    let list_Elements_Mapping = [];
-    let list_Elements_Tales = [];
-    let list_Elements_Creatures = [];
-    let list_Elements_Groups = [];
+
+
     
     AddClickEventstoArrayElements(listTitles, "click");
 
     
-
+    
     function AddClickEventstoArrayElements(array, eventType)
     {
         array.forEach(element =>
@@ -49,7 +46,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.addEventListener(eventType, (e) =>{
                     e.preventDefault();
                     const list = element.nextElementSibling;
+
+                    if (!list) return;
+
+
                     list.classList.toggle("hidden");
+
+                    const arrowSpan = element.querySelector(".arrow");
+                    if (!arrowSpan) return;
+
+                    const isHidden = list.classList.contains("hidden");
+                    arrowSpan.textContent = isHidden ? "◄ " : "▼ ";
                 })
             })
 
@@ -117,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 archiveTextArea.appendChild(newLine);
             })
 
-            archiveCredit.textContent = "- " + article.credit;
+            archiveCredit.textContent = "~ " + article.credit;
 
             
    
