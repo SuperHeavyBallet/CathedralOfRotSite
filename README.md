@@ -1,4 +1,4 @@
-# CathedralOfRotSite
+# Cathedral Of Rot Site
 
 This repository contains the structured JSON content behind **The Cathedral of Rot** — a subterranean fantasy world of fungal kingdoms, fractured castes, and whispered madness beneath the stone.
 
