@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (!arrowSpan) return;
 
                     const isHidden = list.classList.contains("hidden");
-                    arrowSpan.textContent = isHidden ? "◄ " : "▼ ";
+                    arrowSpan.textContent = isHidden ? "⯇ " : "▼ ";
                 })
             })
 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function FetchArchivesContent()
     {
-        fetch('../content/archives.json')
+        fetch('/content/archives.json')
         .then(response => response.json())
         .then(data => {
             archivesData = data;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Timeline</title>
     <link rel="stylesheet" href="/styles.css">
     <script src="/javascript/common.js"></script>
     <script>
@@ -13,10 +13,11 @@
         }
     </script>
     <script src="/javascript/colorTheme.js"></script>
+    <script src="/javascript/timeline.js"></script>
 </head>
 <body>
-   
-
+    
+    
     <h2 class="title">
         Welcome To The Cathedral of Rot
         </h2>
@@ -29,32 +30,18 @@
 
         <div class="horizontal-list">
             <a href="/pages/archives.html" class="page-link" id="archives-page-link">Archives</a>
-            <a href="/pages/timeline.html" class="page-link" id="timeline-page-link">Timeline</a>
+            <a href="/pages/timeline.html" class="page-link disabled-link" id="timeline-page-link">Timeline</a>
             <a href="/pages/mud.html" class="page-link" id="mud-page-link">MUD</a>
-            <a href="/pages/about.html" class="page-link disabled-link" id="about-page-link" aria-current="page">About</a>
-            <a href="/pages/support.html" class="page-link" id="support-page-link">Support</a>
+            <a href="/pages/about.html" class="page-link" id="about-page-link">About</a>
+            <a href="/pages/support.html" class="page-link" id="support-page-link" aria-current="page">Support</a>
             <button class="toggle-color-theme" id="toggle-color-theme">☀</button>
         </div>
-
-        <div class="about-section">
-
-            <div class="left-area">
-               <div class="profile-image">
-                    <img class="about-profile-pic" src="/content/images/profile-pic.png">
-                    
-               </div>
-               <h4 class="about-profile-title">Grand Scholar: Alexander Gorham</h4>
-            </div>
-            <div class="right-area">
-                <div class="text-area">
-                <p>The Cathedral of Rot (CoR) is an ever expanding universe I am building as a passion project.</p>
-
-            <p> Ever since the mid 90's, I have been enthralled by the dark, gritty, gothic and often hillariously horrible worlds that human minds have conjured, whether that came in video game lore, fiction, films, table top games or really any form of idea manifestation.</p>
-            </div>
-        </div>
-        </div>
-
         
+        <div id="timelineContainter" class="timeline-container">
+
+        </div>
+        
+
 </body>
 <footer>
     <p>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.</p>
