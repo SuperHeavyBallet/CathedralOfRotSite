@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "",
         "category": "Academic Work",
         "title": "On The Superiority of Dwarvs",
         "content": [
@@ -22,7 +22,7 @@
         
       },
       {
-        "id": 2,
+        "id": "",
         "category": "Academic Work",
         "title": "The Song That Calls the Rot",
         "content": [
@@ -42,7 +42,7 @@
         "credit" : "Markus Brehn, Skarn Chronicler of the Third Age - Commentary on the Current Dark Days."
       },
       {
-        "id": 3,
+        "id": "",
         "category": "Mapping and Clarifications",
         "title": "From Earth To Root - A Rough Guide To Descending",
         "content": [
@@ -53,7 +53,7 @@
         "credit" : "Markus Brehn, Skarn Chronicler of the Third Age - Our Mountain Whole"
       },
       {
-        "id": 4,
+        "id": "",
         "category": "Mapping and Clarifications",
         "title": "The Stones of Our Mountain",
         "content": [
@@ -64,7 +64,7 @@
         "credit" : "Markus Brehn, Skarn Chronicler of the Third Age - Our Mountain Whole"
       },
       {
-        "id": 5,
+        "id": "",
         "category": "Tales & Found Words",
         "title": "Echoes of the Thrallborne",
         "content": [
@@ -78,7 +78,7 @@
         "credit" : "Unkown"
       },
       {
-        "id": 6,
+        "id": "",
         "category": "Tales & Found Words",
         "title": "The Last Mumbles of a Witless Dorf",
         "content": [
@@ -100,7 +100,7 @@
         "credit" : "Recorded by the Mouthless Scribes, 77th Year of the Withering."
       },
       {
-        "id": 7,
+        "id": "",
         "category": "Academic Work",
         "title": "Biological Degradation Among the Short-Folk",
         "content": [
@@ -130,7 +130,7 @@
         "credit" : "Markus Brehn, Skarn Chronicler of the Third Age - Assessments of Our Co-Inhabitants, 265th Edition"
       },
       {
-        "id": 8,
+        "id": "",
         "category": "Academic Work",
         "title": "The First Sealing",
         "content": [
@@ -148,7 +148,7 @@
         "credit" : "Markus Brehn - Commentary on the Previous Dark Days."
       },
       {
-        "id": 9,
+        "id": "",
         "category": "Groups",
         "title": "The Blind Goblins",
         "content": [
@@ -157,7 +157,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 10,
+        "id": "",
         "category": "Mapping and Clarifications",
         "title": "The Forms of Fungus",
         "content": [
@@ -205,7 +205,7 @@
         "credit" : "Markus Brehn - Notes on the Cave Contents."
       },
       {
-        "id": 11,
+        "id": "",
         "category": "Groups",
         "title": "Dwargs, Dwarvs, Dwarfs & Dorfs",
         "content": [
@@ -214,7 +214,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 12,
+        "id": "",
         "category": "Groups",
         "title": "The Skarn",
         "content": [
@@ -223,7 +223,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 13,
+        "id": "",
         "category": "Groups",
         "title": "The Skeevers",
         "content": [
@@ -232,7 +232,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 14,
+        "id": "",
         "category": "Groups",
         "title": "The Mountain Moles",
         "content": [
@@ -241,7 +241,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 15,
+        "id": "",
         "category": "Groups",
         "title": "The Thrallborne",
         "content": [
@@ -250,7 +250,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 15,
+        "id": "",
         "category": "Groups",
         "title": "The Elders",
         "content": [
@@ -259,7 +259,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 16,
+        "id": "",
         "category": "Creatures",
         "title": "Stoneslugs",
         "content": [
@@ -268,7 +268,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 17,
+        "id": "",
         "category": "Creatures",
         "title": "Borebugs",
         "content": [
@@ -277,7 +277,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 18,
+        "id": "",
         "category": "Creatures",
         "title": "Whitespiders",
         "content": [
@@ -286,7 +286,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 19,
+        "id": "",
         "category": "Creatures",
         "title": "Blackspiders",
         "content": [
@@ -295,7 +295,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 20,
+        "id": "",
         "category": "Creatures",
         "title": "Wallwisp",
         "content": [
@@ -304,7 +304,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 21,
+        "id": "",
         "category": "Creatures",
         "title": "Rockcrawler",
         "content": [
@@ -313,7 +313,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 22,
+        "id": "",
         "category": "Creatures",
         "title": "Glowbugs",
         "content": [
@@ -322,7 +322,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 23,
+        "id": "",
         "category": "Creatures",
         "title": "Deepfur",
         "content": [
@@ -331,7 +331,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 24,
+        "id": "",
         "category": "Creatures",
         "title": "Fallclaw",
         "content": [
@@ -340,7 +340,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 25,
+        "id": "",
         "category": "Tales & Found Words",
         "title": "Dwarv Slurs",
         "content": [
@@ -349,7 +349,7 @@
         "credit" : "Unknown"
       },
       {
-        "id": 26,
+        "id": "",
         "category": "Groups",
         "title": "The Word-Keeps",
         "content": [
@@ -369,7 +369,7 @@
         "credit" : "'When the Final Word is spoken, the mountain shall fall silent.' – Quillmaw, 1st of the Word-Keeps"
       },
       {
-        "id": 27,
+        "id": "",
         "category": "Mapping and Clarifications",
         "title": "The Rotless City",
         "content": [
@@ -380,6 +380,44 @@
            "The only known path lies through the heart of the Great Chasm — an unnatural descent, followed by a nine-day crawl through a silent tunnel carpeted with the desiccated remains of those who dared to seek the city."
         ],
         "credit" : "Markus Brehn – Visions Recovered from the Lightfungus Chasm"
+      },
+      {
+        "id": "",
+        "category": "Mapping and Clarifications",
+        "title": "Food Sources & Diets",
+        "content": [
+           "Complex, rich food sources are highly scarce under the mountain, leading many factions to seek out different methods of sustenance.",
+           "~ Goblins/Blind Goblins ~",
+           "Carnivores and cannibals. Will eat any living or dead creature they are able to, with the Blind Goblins being less inclined to killing non hostile creatures for food.",
+           "~ Skeevers ~",
+           "Omnivores and cannibals, much like the Goblins, but with no sub group with any hesitations as to food sources. They will also happily consume all types of fungus and plant life within the mountain, with some even suspected of nibbling on rotfungus without death.",
+           "~ Dorfs ~",
+           "Mostly graze on fungus and Rockslime (Thick, edible green mats of condensed mineral algae which forms on rock surfaces near hot fissures).",
+           "~ Dwarfs ~",
+           "Will eat fungus, Rockslime, fish, Wetsnake, Rats, Glowbugs, Wallwisps - will eat Fallclaws, Rockcrawlers, Whitespider and Blackspiders and Borebugs but prefer not to.",
+           "~ Dwarvs ~",
+           "Will eat essentially the same as Dwarfs, except will only eat bugs and ‘lowfood’ if presented as a superfluous, junk food source eaten only for fun, rather than survival. They prefer to have meals prepared for them before eating (although after leaving the walls of settlements will immediately resort to the food source and style of Dwarfs).",
+           "~ Dwargs ~",
+           "Unknown but assumed to be similar to Dwarvs and Dwarfs diets.",
+           "~ Thrallborne ~",
+           "Unknown, assumed none.",
+           "~ Mountain Moles ~",
+           "Unknown.",
+           "~ Elders ~",
+           "Unknown.",
+           "~ Skarn ~",
+           "Adapted to be more in line with the Dwarfs, although possessing a higher ability of food processing than raw cave food.",
+           " ",
+           "~ Common Food Sources: ~",
+           "Wetsnake - an eel of abundance which slithers through shallow water and occasionally surfaces to wriggle across land between pools.",
+           "Rats / Caverats - The former is a transient visitor from the surface, while the latter has settled permanently and slowly evolved into a more wiry, blind and pale creature. Both are eaten for their meat sources.",
+           "Rockslime - Thick mats of pale slimy algae formed from secreted minerals from deeper cave productions via hot fissures in rocks exposed to cooler air. Can be dried and crumbled to cook into other meals (Wetsnake soup etc).",
+           "Dimwood shoots - small, fledgeling stems of new Woodfungus growths. Tasteless, chewy and offering little nutrition except fibre, but are sometimes chewed as time passers, teeth cleaners and ‘belly scrubbers’.",
+           "Glowbugs - Are gathered in mass and stored in bags or containers to be munched on periodically. Crunchy and high in protein.",
+           "Stoneale - A form of alcoholic drink formed through fermented varieties of mountain fungus, the official breweries are all  located in Word-Keep enclaves, although some unregulated rogue breweries can be found throughout the mountain.",
+           "Paledrink - A simple liquid gathered from rock drippings in areas of high condensation. The exact flavour can vary depending on the source, but all are generally very high in mineral content from the rock makeup, with a milky white tint to them."
+           ],
+        "credit" : "Markus Brehn – Notes on the Undergroups"
       }
     
     

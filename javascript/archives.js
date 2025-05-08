@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
             archivesData = data;
             console.log(archivesData);
 
+            AssignID(archivesData);
+            console.log(archivesData);
+
             PopulateList(list_AcademicWork, "Academic Work");
             PopulateList(list_Mapping, "Mapping and Clarifications");
             PopulateList(list_Tales, "Tales & Found Words");
@@ -84,6 +87,20 @@ document.addEventListener("DOMContentLoaded", function() {
             FillArticle(archivesData[0]);
 
         });
+    }
+
+    function AssignID(data)
+    {
+
+
+        const tempArray = data.map((entry, index) => ({
+            ...entry,
+            id: index.toString()
+        }));
+
+        archivesData = tempArray;
+
+        
     }
 
     function PopulateList(listName, jsonCategory)

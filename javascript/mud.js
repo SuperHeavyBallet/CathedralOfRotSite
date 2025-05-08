@@ -14,7 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const leftArrow = document.getElementById("moveLeft");
     const rightArrow = document.getElementById("moveRight");
     let playerPosition = [0,0];
-    let tempEnemyPosition = [];
+
+    let tempEnemyPositions= [];
+
+    const attackButton = document.getElementById("attackButton");
+
+    attackButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        Attack();
+    })
 
     let dungeonCellPositions = [];
 
@@ -24,7 +32,45 @@ document.addEventListener("DOMContentLoaded", function() {
     AddMoveEventListener(rightArrow, [0, 1]);
 
 
+    const reloadButton = document.getElementById("reloadButton");
+    reloadButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        ClearCells();
+        DrawDungeon();
+    })
+
     GetDungeon();
+
+    function Attack()
+    {
+
+        const [px, py] = playerPosition;
+
+        const directions = [
+            [px - 1, py],
+            [px + 1, py],
+            [px, py - 1],
+            [px, py + 1],
+        ];
+
+        for (const [x, y] of directions) {
+            
+            for(let i = 0; i < tempEnemyPositions .length; i++)
+            {
+                if (x === tempEnemyPositions[i][0] && y === tempEnemyPositions[i][1]) {
+                    console.log("Hit enemy!");
+                    tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
+                    break;
+                }
+            }
+           
+        }
+        ClearCells();
+        RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions);
+    
+    
+
+    }
 
     function GetDungeon()
     {
@@ -57,20 +103,16 @@ document.addEventListener("DOMContentLoaded", function() {
     {   
         const [newX, newY] = [playerPosition[0] + amount[0], playerPosition[1] + amount[1]];
 
-        let moveIsValid = 
-            newX >= 0 && newX < rowSize &&
-            newY >= 0 && newY < rowSize;
+        
 
-            let obstacle = "wall";
+        
 
-            if(newX === tempEnemyPosition[0] && newY === tempEnemyPosition[1])
-            {
-                moveIsValid = false;
-                obstacle = "enemy"
-                window.alert(`You hit an ${obstacle}!`);
-                return;
-            }
-            else if(moveIsValid)
+   
+
+            CheckForWalls(newX, newY);
+            CheckForEnemies(newX, newY);
+
+            if(moveIsValid)
             {
                 const newPlayerPosition = [
                     playerPosition[0] + amount[0],
@@ -79,14 +121,9 @@ document.addEventListener("DOMContentLoaded", function() {
         
                 ClearCells();
         
-                console.log(newPlayerPosition);
-        
                 playerPosition = newPlayerPosition;
         
-                RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPosition[0], tempEnemyPosition[1])
-            }
-            else{
-                window.alert(`You hit a ${obstacle}!`);
+                RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions)
             }
             
         
@@ -104,18 +141,25 @@ document.addEventListener("DOMContentLoaded", function() {
         let randomX = GenerateRandomPosition();
         let randomY = GenerateRandomPosition();
 
-        let randomEnemyX = GenerateRandomPosition();
-        let randomEnemyY = GenerateRandomPosition();
-
-        while(randomEnemyX === randomX && randomEnemyY === randomY)
-        {
-            randomEnemyX = GenerateRandomPosition();
-            randomEnemyY = GenerateRandomPosition();
-        }
+        
 
         playerPosition = [randomX, randomY];
-        tempEnemyPosition = [randomEnemyX, randomEnemyY];
-        RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPosition[0], tempEnemyPosition[1]);
+
+        for(let i = 0; i < 5; i++)
+        {
+            let randomEnemyX = GenerateRandomPosition();
+            let randomEnemyY = GenerateRandomPosition();
+
+            while(randomEnemyX === randomX && randomEnemyY === randomY)
+            {
+                randomEnemyX = GenerateRandomPosition();
+                randomEnemyY = GenerateRandomPosition();
+            }
+
+            tempEnemyPositions[i] = [randomEnemyX, randomEnemyY];
+        }
+        console.log(tempEnemyPositions);
+        RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions);
 
 
         
@@ -126,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return  Math.floor( Math.random() * (rowSize));
     }
 
-    function RenderDungeon(playerX, playerY, enemyX, enemyY)
+    function RenderDungeon(playerX, playerY, enemyPositions)
     {
 
         for(let i = 0; i < rowSize; i++)
@@ -147,13 +191,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                     else
                     {
-                        if(enemyX === i & enemyY === j)
-                        {
-                            cell.textContent = "E";
+                        let enemyHere = false;
+
+                        for (let k = 0; k < enemyPositions.length; k++) {
+                            const [ex, ey] = enemyPositions[k];
+                            if (ex === i && ey === j) {
+                                cell.textContent = "E";
+                                enemyHere = true;
+                                break;
+                            }
                         }
-                        else{
+
+                        if (!enemyHere) {
                             cell.textContent = " ";
                         }
+                        
+                      
                         
                         
                     }
@@ -177,9 +230,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 rowArray.push(cell); // Add the cell to the row
 
             }
+            dungeonCellPositions.push(rowArray); // Add the row to the full array
         }
 
-        dungeonCellPositions.push(rowArray); // Add the row to the full array
+        
     }
 
     function ClearCells()
@@ -196,10 +250,52 @@ document.addEventListener("DOMContentLoaded", function() {
             previousPositionCell.classList.remove("map-cell-current");
             previousPositionCell.textContent = " ";
         }
-
   
         
        
     }
+
+    function CheckForWalls(newX, newY)
+    {
+        const upCell = [newX, newY];
+        const downCell = [newX, newY];
+        const leftCell = [newX, newY];
+        const rightCell = [newX, newY];
+
+        if(newX >= 0 && newX < rowSize &&
+            newY >= 0 && newY < rowSize)
+        {
+            moveIsValid = true; 
+        }
+        else
+        {
+            moveIsValid = false;
+            obstacle = "wall"
+            window.alert(`You hit a ${obstacle}!`);
+        }
+
+      
+    }
+
+    function CheckForEnemies(newX, newY)
+    {
+        const upCell = [newX, newY];
+        const downCell = [newX, newY];
+        const leftCell = [newX, newY];
+        const rightCell = [newX, newY];
+
+
+        for(let i = 0; i <tempEnemyPositions.length; i++)
+        {
+            if(newX === tempEnemyPositions[i][0] && newY === tempEnemyPositions[i][1])
+            {
+                moveIsValid = false;
+                obstacle = "enemy"
+                window.alert(`You see an ${obstacle}...`);
+            }
+        }
+        
+    }
+
 
 })
