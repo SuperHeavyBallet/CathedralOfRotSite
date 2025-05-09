@@ -261,36 +261,46 @@
       {
         "id": "",
         "category": "Creatures",
-        "title": "Stoneslugs",
+        "title": "Stoneslug",
         "content": [
-            "Overview of the Stoneslug, charting individuals potential threat"
+            "Large, pale slugs that crawl through tunnels. No eyes or surface decoration except for two, eyeless antennae, used for sensing vibrations in the air. Only pale, semi transparent skin to show pulsing white cores inside. Sticky and slimy, leave trails as they move, usually found around damp areas, near rivers or fungus sites.",
+            "Immune to Rotfungus, will eat it and any other fungus. Can slowly consume organic tissue, but cannot attack or defend, sometimes consumes dead bodies. Neither strictly solitary or collective, can exist either way but not hive minded.",
+            "Often used by Dwarfs as mules to transport material on their backs, can carry a good amount of weight but are very slow to move.",
+            "Is able to secrete a toxic solution which will slowly eat through rocks, but not at a rate that makes anything particularly possible for the slug itself, but tunnels which slugs frequently pass through are notably increased in size over time and smoother surfaced.",
+            "Given the moist body of the Stoneslug, fungus often grow across the backs of the creature, with the Stoneslug itself being immune to the ordinary effects of fungus, but the fungus roots will penetrate through the flesh and eventually the brain, creating bizarre behaviours in the slugs, also brings the risk of fungus spread within the mountain."
         ],
         "credit" : "Unknown"
       },
       {
         "id": "",
         "category": "Creatures",
-        "title": "Borebugs",
+        "title": "Borebug",
         "content": [
-            "Overview of the Borebug, charting individuals potential threat"
+            "A small burrowing beetle, black body, hard shell, only about the size of a finger tip.",
+            "Not dangerous, has very hard teeth which are able to chew through rock very rapidly. Will overwhelm dead organic tissue as a swarm to quickly reduce it to nothing. Will consume soft and hard tissue easily, but has never been seen to attack a living creature.",
+            "Moves in swarms and lives inside the rocks, frequently burrowing and eventually creating honeycomb-like internal structures within rocks, frequently leading to structural instability and cave collapses."
         ],
         "credit" : "Unknown"
       },
       {
         "id": "",
         "category": "Creatures",
-        "title": "Whitespiders",
+        "title": "Whitespider",
         "content": [
-            "Overview of the Whitespider, charting individuals potential threat"
+            "Huge, slow, but harmless spiders. Crawl around large open caves, and will squeeze the whole body and legs into holes for nesting. Long, slender legs and small central body, no eyes, light, fine hair across their bodies. White colour, a slight glow makes them stand out in the dark like ghosts. Feed on dead organic tissue, are immune to Rotfungus, can eat it with no harm.",
+            "Scary, but safe."
         ],
         "credit" : "Unknown"
       },
       {
         "id": "",
         "category": "Creatures",
-        "title": "Blackspiders",
+        "title": "Blackspider",
         "content": [
-            "Overview of the Blackspider, charting individuals potential threat"
+            "Relatively small ( about the size of a boot ), solitary hunters. Larger body, angular shape, a single pair of tiny eyes above fangs. Coarse, dark hair across the whole body. Slender, sharp legs ending in spiked shapes.",
+            "They hide in tunnels and cave corners, burrow into holes and crevices. Spin large webs across openings like tunnel passages or floor holes. Venomous, can kill many creatures and wrap them in cocoons while slowly dissolving them to eat.",
+            "Very fast, jump and run.",
+            "Scary, fast, sneaky, deadly."
         ],
         "credit" : "Unknown"
       },
@@ -299,7 +309,10 @@
         "category": "Creatures",
         "title": "Wallwisp",
         "content": [
-            "Overview of the Wallwisp, charting individuals potential threat"
+            "A small, unassuming salamander type creature. 4 legs, a long, slender body with a long fine tail and a small flat head, two non-formed eyes, two nose slits and a toothless mouth with a flickering red tongue.",
+            "The skin is a very pale pink colour, with the colour being deep and the surface being slick and translucent, making the creature seem slightly slimy.",
+            "The wallwisp lives in caves, often near water, and can swim, crawling on floors, walls and ceilings in search of small bugs for food. Not dangerous, but gets its name for the sound it creates when sitting and sending vibrations through the rocks in search of nearby bugs.",
+            "People often hear the sound but rarely see the creature, with some being tempted to investigate, creating a risk since the Wallwisp lives in darkness where the surrounding itself could be dangerous for blind exploration."
         ],
         "credit" : "Unknown"
       },
@@ -308,7 +321,10 @@
         "category": "Creatures",
         "title": "Rockcrawler",
         "content": [
-            "Overview of the Rockcrawler, charting individuals potential threat"
+            "Essentially a cave centipede. About 1 metre in length, many legs and antennae, pale brown and lightly haired across the body. Small fangs on an eyeless face.",
+            "Moves very quickly and will attack, although has difficulty with larger prey, so often eats smaller bugs like Borebugs and Blackspiders. Will also eat Wallwisps if able to ambush them, and will follow Stoneslugs while repeatedly attacking them to eventually take them down, but rarely eats the actual slug because it tastes foul.",
+            "They have been trapped and brought into settlements for periodic pest control given their effectiveness at eliminating rat populations.",
+            "Found in tunnels across walls, floors, ceilings, but more often in large, open caves across the ceiling and walls, likes to hang out in Dimwood areas, although avoids light."
         ],
         "credit" : "Unknown"
       },
@@ -317,7 +333,7 @@
         "category": "Creatures",
         "title": "Glowbugs",
         "content": [
-            "Overview of the Glowbug, charting individuals potential threat"
+            "Small, flying insects that exist only in dimwoods(tree areas well lit by large Lightfungus collections on the cave roof) and rarely at lightfungus sites. They require sustained light to continue their existence as a species, and they give off faint glows by themselves when extracted and held in the dark, making them suitable for short lived torches by way of containing in a jar."
         ],
         "credit" : "Unknown"
       },
@@ -326,7 +342,10 @@
         "category": "Creatures",
         "title": "Deepfur",
         "content": [
-            "Overview of the Deepfur, charting individuals potential threat"
+            "A rare, not truly native species of bear from higher in the mountain, who, a long time ago fled from some threat, deeper into the tunnels, but becoming lost and unable to return. So they adapted to their new lives and conditions in the caves.",
+            "Mostly harmless, but are territorial and protective of their belongings/areas.",
+            "Pale gray fur, blind or near blind, look like frail, shrunken polar bears with eyes that attempted to grow to be able to see more, but eventually reverted to simple blindness with enhanced hearing and smell.",
+            "Usually live in caves near rivers, where they mostly survive from fish."
         ],
         "credit" : "Unknown"
       },
@@ -335,16 +354,24 @@
         "category": "Creatures",
         "title": "Fallclaw",
         "content": [
-            "Overview of the Fallclaw charting individuals potential threat"
+            "Behaviorally similar to a flying squirrel, in that it crawls to higher spots and jumps down, gliding sometimes to latch onto prey. ",
+            "It is a predator, around 30cm wide. It has a central body, eyeless with a fanged mouth on the front underside, and 4 long, spider-like limbs spanning out from there, each connected by a leathery, brown membrane of flesh which allows the creature to glide and control descent through the air. The top half is covered on the legs and body by rough hair, while the bottom and wings are hairless and soft.",
+            "Behaviorally they will crawl to higher spots, like cave roofs or tunnel tops, waiting for a prey to pass beneath. Then they will detach and fall upon the prey, wrapping their legs around it, surrounding it by their wing membrane to constrict it while they bite with the fangs and inject venom, which creates a reaction in which the preys internal organs swell, eventually crushing or restricting airflow internally until they die.",
+            "They will attack small prey preferably which they can fit entirely within their leg grasp, but can also attack larger creatures, prompting most groups to wear hats or similar protective devices when walking through areas suspected to be home to these creatures.",
+            "Normally they cannot kill large prey like a Dwarv, Dwarf, Skarn etc - but if they are able to latch and remain latched for long enough, the venom can saturate and immobilize the prey, leading them to collapse and suffocate from their throat and internal organs swelling in an allergic reaction like response. This can be reverted by removing the creature in time or by inhaling suitable fungus spores to counteract the venom.",
+            "The creature is mostly solitary, but will happily co-inhabit areas with others of its kind, leading to swarm attacks which make the chance of venom saturation in larger prey higher. So, hats or umbrella type devices are common in these areas."
         ],
         "credit" : "Unknown"
       },
       {
         "id": "",
         "category": "Tales & Found Words",
-        "title": "Dwarv Slurs",
+        "title": "Mountain Insults & Slurs",
         "content": [
-            "Overview of the Dwarv Slurs."
+            "Rockwhelp - Insult from Dwarvs/Dwarfs toward Dorfs. Insinuiting that their parents are simple rocks.",
+            "Muckborn - General insult meaning any creature birthed wrongly, used especially against Dorfs.",
+            "Slugblood - Deep insult Dwarves use against Dwarfs, invoking the 'Stoneslug impregnation' myth.",
+            "Slugbrain - A light unsult to imply stupidity."
         ],
         "credit" : "Unknown"
       },
@@ -418,7 +445,61 @@
            "Paledrink - A simple liquid gathered from rock drippings in areas of high condensation. The exact flavour can vary depending on the source, but all are generally very high in mineral content from the rock makeup, with a milky white tint to them."
            ],
         "credit" : "Markus Brehn – Notes on the Undergroups"
+      },
+      {
+        "id": "",
+        "category": "Creatures",
+        "title": "Mindthieves",
+        "content": [
+            "Large black phantoms stalking the spaces in the Underchambers. Somewhat like manta rays in shape, with bodies of black smoke surrounding a fine nerve system, branching out to the extreme body borders.",
+            "No eyes, no distinct features.",
+            "They fly through the air, searching for prey below. They feast on thoughts and ideas, psychically latching onto unsuspecting creatures capable of thinking, closing in, circling closely above or wrapping their smoke body and nerve filaments around the prey, sending them into a spiral of thoughtful crisis, generating thoughts rapidly for the Mindthief to feast on.",
+            "Will act solo or in groups, with every Mindthief working to extract thoughts separately, not hive minded but will attack en masse."
+
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": "",
+        "category": "Creatures",
+        "title": "Rats",
+        "content": [
+            "With the arrival of the Skarn from the outside world, the Dwarv civilisation began to grow, forming settlements and civilised societies within the mountain with plentiful, stored food sources (Think agricultural revolution).",
+            "Then, rats begin to appear from the surface level (Although the inhabitants had no idea where they came from) - which led the Skarn to believe aside from the now sealed Great Hall entrance, there must be other entrance points for the rats to come and go, leading to eventual discovery of these vents and exit ports, but probably the Skarn keep tight control on the knowledge of their existence.",
+            "Throughout the years, while new 'regular' rats do come and go fairly regularly, more cave specified strains have begun to develop, with paler, wiry bodies, loss of fur and reduction or loss of eyesight (or loss of eyes entirely) but extremely enhanced smell and sound. These mountain rats grew accustomed to living solely in the mountains, usually nesting in tunnels and caves nearby Dwarv, Dwarf and Skarn settlements, often disturbing food storage.",
+            "The rat infestation has led to forced domestication attempts of cave creatures like the Rockcrawler and Fallclaw, stored within settlements and deployed when rat presence is noted around important food storage areas. Also, some Goblins who have become involved with Skarn groups will hire themselves as Rat-hunters, paid by free roam in the territories where rats exist, where they would usually be shooed away, leading to a high yield of free rats as food for the Goblins."
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": "",
+        "category": "Creatures",
+        "title": "Graveleech",
+        "content": [
+            "Another cave-slug like creature, similar to the Stoneslug. While the Stoneslug is mostly harmless, the Graveleech is a much more dangerous variation.",
+            "Generally smaller, but able to grow to huge sizes if left to feed and rest for long enough, the Graveleech is a pale, semi translucent skinned, slimy creature, featureless except for twin antennae used to detect heat signatures.",
+            "The Graveleech feeds on prey slowly, by crawling over the victim and slowly secreting a strong acidic liquid that is able to dissolve organic material into a slush, which the Graveleech then absorbs through its small, underside located mouth.",
+            "The Graveleech is slow, quite easy to evade and remain safe from. It usually feasts on dead organic material. However, the danger comes when people are sleeping in caves, which the Graveleech happily acknowledges as food and crawl across, then secrete its liquid to dissolve through the victim.",
+            "If the Graveleech is big enough, it can cover the victims' entire body, so that while the dissolving action of its secretion is slow, it can cover enough of the victim's body with it that a slow, painful death is quite likely.",
+            "Other methods of attack are found with smaller, younger Graveleech who with their lighter bodies, are able to crawl up walls and latch onto ceiling surfaces, where they can fall onto prey passing below, either accidentally or with intent. Often, the prey can quickly brush them off, but if left unnoticed can certainly leave quite a bad injury as the dissolving solution burns away until reaching the skin, by which point the solution will only cease action once it has burned through enough organic tissue, or a cancelling agent is used to neutralise the solution.",
+            "The younger Graveleech will also crawl on ceilings while freely dripping down their acid below, making walking through areas with them quite dangerous.",
+            "Graveleeches and Stoneslugs are both sensitive to fire and cold, which quickly interferes with their sensitive bodies to dry them out quickly.",
+            "Also, tunnel adventurers often carry pouches of salt and minerals to throw at the slugs if a need arises.",
+            "Areas with high slug traffic can also be quite dangerous to walk through, as the slug movement slowly carves grooves into the rock surface, making the terrain uncertain, and stumbling quite likely.",
+            "It is advised in general not to sleep in unknown caves or tunnels, or to have an awake partner, or to circle yourself with a ring of salt - but this will not prevent drop attacks from above."
+        ],
+        "credit" : "Unknown"
+      },
+      {
+        "id": "",
+        "category": "Mapping and Clarifications",
+        "title": "The Under Chambers",
+        "content": [
+            "A massive cavity beneath all other parts of the territories under the mountain, believed to extend laterally beyond the borders of the mountain.",
+            "Home to the Great Stones and creatures of the Under-Dark."
+
+        ],
+        "credit" : "Unknown"
       }
-    
     
 ]
