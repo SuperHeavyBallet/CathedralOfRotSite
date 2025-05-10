@@ -1,14 +1,44 @@
 [
     {
         "name" : "room_1",
-        "size" : "100"
+        "size" : "100",
+        "enemies" : [
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Rat", 3],
+            ["Rat", 3],
+            ["Slug", 5]
+        ]
     },
     {
         "name" : "room_2",
-        "size" : "144"
+        "size" : "144",
+        "enemies" : [
+            "Goblin",
+            "Goblin",
+            "Goblin",
+            "Rat",
+            "Rat",
+            "Rat",
+            "Slug",
+            "Slug"
+        ]
     },
     {
-        "name" : "room_1",
-        "size" : "225"
+        "name" : "room_3",
+        "size" : "225",
+        "enemies" : [
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Goblin", 10],
+            ["Rat", 3],
+            ["Rat", 3],
+            ["Rat", 3],
+            ["Rat", 3],
+            ["Slug", 5]
+        ]
     }
 ]

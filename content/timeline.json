@@ -3,7 +3,7 @@
         "id" : "",
         "eventTitle" : "The Elder Binding",
         "eventDate" : "-2056",
-        "eventText" : "The Elders become bound to the Thrall Borne Vessels"
+        "eventText" : "The Elders become bound to the Thrallborne Vessels"
 
     },
     {
@@ -62,5 +62,11 @@
         "eventTitle" : "The Dwarvs Claim The Mountain",
         "eventDate" : "-1100",
         "eventText" : "Dwarvs Spread into further cave networks, claiming command"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Great Stones Rise",
+        "eventDate" : "-2090",
+        "eventText" : "In the Under Chambers, the Great Stones emerge."
     }
 ]

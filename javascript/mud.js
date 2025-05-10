@@ -4,10 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
     let cellCount;
     let rowSize;
     let rowArray;
+    let cellRow;
     let moveIsValid = false;
 
-    const mudContainer = document.getElementById("mudContainer");
     const dungeonMap = document.getElementById("dungeonMap");
+
+    class DungeonCell {
+        constructor(position = [0, 0], contents = ["", 0]) {
+            this.position = position;
+            this.contents = contents;
+        }
+    }
+
+    let dungeonCellsWithContents = [];
+
+    console.log(dungeonCellsWithContents);
 
     const upArrow = document.getElementById("moveUp");
     const downArrow = document.getElementById("moveDown");
@@ -16,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let playerPosition = [0,0];
 
     let tempEnemyPositions= [];
+    let enemiesInDungeon = [];
 
     const attackButton = document.getElementById("attackButton");
 
@@ -57,9 +69,24 @@ document.addEventListener("DOMContentLoaded", function() {
             
             for(let i = 0; i < tempEnemyPositions .length; i++)
             {
-                if (x === tempEnemyPositions[i][0] && y === tempEnemyPositions[i][1]) {
-                    console.log("Hit enemy!");
-                    tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
+
+                const enemyX = Number(tempEnemyPositions[i][0]);
+                const enemyY = Number(tempEnemyPositions[i][1]);
+
+                if (x === enemyX  && y === enemyY ) {
+
+                    //tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
+
+                    const targetEnemyCell = dungeonCellsWithContents[enemyX][enemyY];
+                    const targetEnemyName = targetEnemyCell.contents[0];
+                    const targetEnemyHealth = targetEnemyCell.contents[1];
+                    console.log(targetEnemyName);
+                    console.log(targetEnemyHealth);
+
+                    console.log(dungeonCellsWithContents[enemyX][enemyY].contents[0]);
+                    dungeonCellsWithContents[enemyX][enemyY].contents[0] = "Hit";
+                    console.log(dungeonCellsWithContents[enemyX][enemyY].contents[0]);
+
                     break;
                 }
             }
@@ -79,8 +106,13 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             dungeonData = data;
 
-            cellCount = dungeonData[2].size;
+            let tempDungeonIndex = 2;
+
+            cellCount = dungeonData[tempDungeonIndex].size;
             rowSize = Math.sqrt(cellCount);
+      
+            enemiesInDungeon = dungeonData[tempDungeonIndex].enemies;
+ 
 
             DrawDungeon();
         });
@@ -135,17 +167,18 @@ document.addEventListener("DOMContentLoaded", function() {
     function DrawDungeon()
     {
         dungeonCellPositions = []; // Reset it every time you draw
-
+        dungeonCellsWithContents = [];
         
 
-        let randomX = GenerateRandomPosition();
+        let randomX = rowSize - 1; // Currently forcing player to start on bottom row
         let randomY = GenerateRandomPosition();
 
+  
         
 
         playerPosition = [randomX, randomY];
 
-        for(let i = 0; i < 5; i++)
+        for(let i = 0; i < enemiesInDungeon.length; i++)
         {
             let randomEnemyX = GenerateRandomPosition();
             let randomEnemyY = GenerateRandomPosition();
@@ -158,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             tempEnemyPositions[i] = [randomEnemyX, randomEnemyY];
         }
-        console.log(tempEnemyPositions);
+      
         RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions);
 
 
@@ -173,30 +206,53 @@ document.addEventListener("DOMContentLoaded", function() {
     function RenderDungeon(playerX, playerY, enemyPositions)
     {
 
+        dungeonCellPositions = [];
+        dungeonCellsWithContents = [];
+
         for(let i = 0; i < rowSize; i++)
         {
             
             rowArray = [];
+            cellRow = [];
+
 
             for(let j = 0; j < rowSize; j++)
             {
                 const cell = document.createElement("p");
-
+                let newCell = new DungeonCell([i,j], ["", 0]);
 
                     if(playerX === i && playerY === j)
                     {
                         cell.textContent = "P";
                         cell.classList.add("map-cell-current");
                         cell.id = "map-cell-current";
+
+                        
+                        newCell.contents = ["player", 10];
                     }
                     else
                     {
+                        
                         let enemyHere = false;
 
                         for (let k = 0; k < enemyPositions.length; k++) {
                             const [ex, ey] = enemyPositions[k];
                             if (ex === i && ey === j) {
-                                cell.textContent = "E";
+
+                                
+                                console.log(dungeonCellsWithContents[j]);
+                                const enemyName = enemiesInDungeon[k][0];
+                                const enemyHealth = enemiesInDungeon[k][1];
+
+                                //console.log(enemyName , enemyHealth);
+
+                                
+                                    cell.textContent = enemyName[0] + enemyName[1] + enemyName[2];
+
+                                    
+                                    newCell.contents = [enemyName, enemyHealth];
+                                
+                                
                                 enemyHere = true;
                                 break;
                             }
@@ -204,18 +260,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
                         if (!enemyHere) {
                             cell.textContent = " ";
+                            newCell.contents = ["", null];
                         }
-                        
-                      
-                        
-                        
+
                     }
-                
-                
-                
-                
+
                 cell.classList.add("map-cell")
                 dungeonMap.appendChild(cell);
+
+                
 
                 cell.addEventListener('click', (e) =>
                 {
@@ -228,10 +281,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
 
                 rowArray.push(cell); // Add the cell to the row
+                cellRow.push(newCell);
 
             }
             dungeonCellPositions.push(rowArray); // Add the row to the full array
+            dungeonCellsWithContents.push(cellRow);
         }
+
 
         
     }
@@ -290,8 +346,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if(newX === tempEnemyPositions[i][0] && newY === tempEnemyPositions[i][1])
             {
                 moveIsValid = false;
-                obstacle = "enemy"
-                window.alert(`You see an ${obstacle}...`);
+                obstacle = enemiesInDungeon[i][0];
+                window.alert(`A ${obstacle} blocks your path!`);
+    
+                
             }
         }
         
