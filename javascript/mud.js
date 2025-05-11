@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     let dungeonData = [];
+    let tempDungeonIndex = 2;
     let cellCount;
     let rowSize;
     let rowArray;
@@ -10,15 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const dungeonMap = document.getElementById("dungeonMap");
 
     class DungeonCell {
-        constructor(position = [0, 0], contents = ["", 0]) {
+        constructor(position = [0, 0], contents = "", quantity = 0, id = 0) {
             this.position = position;
             this.contents = contents;
+            this.quantity = quantity;
+            this.id = id;
         }
     }
 
     let dungeonCellsWithContents = [];
-
-    console.log(dungeonCellsWithContents);
 
     const upArrow = document.getElementById("moveUp");
     const downArrow = document.getElementById("moveDown");
@@ -28,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let tempEnemyPositions= [];
     let enemiesInDungeon = [];
+    let enemyObjectsInDungeon = [];
+
+    let allDungeonCells = [];
 
     const attackButton = document.getElementById("attackButton");
 
@@ -35,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault();
         Attack();
     })
-
-    let dungeonCellPositions = [];
 
     AddMoveEventListener(upArrow, [-1, 0]);
     AddMoveEventListener(downArrow, [1, 0]);
@@ -48,14 +50,13 @@ document.addEventListener("DOMContentLoaded", function() {
     reloadButton.addEventListener("click", (e) => {
         e.preventDefault();
         ClearCells();
-        DrawDungeon();
+        BuildDungeon();
     })
 
     GetDungeon();
 
     function Attack()
     {
-
         const [px, py] = playerPosition;
 
         const directions = [
@@ -75,17 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (x === enemyX  && y === enemyY ) {
 
-                    //tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
-
-                    const targetEnemyCell = dungeonCellsWithContents[enemyX][enemyY];
-                    const targetEnemyName = targetEnemyCell.contents[0];
-                    const targetEnemyHealth = targetEnemyCell.contents[1];
-                    console.log(targetEnemyName);
-                    console.log(targetEnemyHealth);
-
-                    console.log(dungeonCellsWithContents[enemyX][enemyY].contents[0]);
-                    dungeonCellsWithContents[enemyX][enemyY].contents[0] = "Hit";
-                    console.log(dungeonCellsWithContents[enemyX][enemyY].contents[0]);
+                    tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
+                
 
                     break;
                 }
@@ -93,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
            
         }
         ClearCells();
-        RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions);
+        RenderDungeon();
     
     
 
@@ -106,20 +98,16 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             dungeonData = data;
 
-            let tempDungeonIndex = 2;
+            
 
             cellCount = dungeonData[tempDungeonIndex].size;
             rowSize = Math.sqrt(cellCount);
       
             enemiesInDungeon = dungeonData[tempDungeonIndex].enemies;
- 
 
-            DrawDungeon();
-        });
-
-       
-            
-        
+            BuildAllDungeonCells();
+            BuildDungeon();
+        });  
     }
 
     function AddMoveEventListener(arrow, positionChange)
@@ -135,55 +123,104 @@ document.addEventListener("DOMContentLoaded", function() {
     {   
         const [newX, newY] = [playerPosition[0] + amount[0], playerPosition[1] + amount[1]];
 
-        
+        CheckForWalls(newX, newY);
+        CheckForEnemies(newX, newY);
 
+        if(moveIsValid)
+        {
+            const newPlayerPosition = [
+                playerPosition[0] + amount[0],
+                playerPosition[1] + amount[1]
+            ];
         
-
-   
-
-            CheckForWalls(newX, newY);
-            CheckForEnemies(newX, newY);
-
-            if(moveIsValid)
-            {
-                const newPlayerPosition = [
-                    playerPosition[0] + amount[0],
-                    playerPosition[1] + amount[1]
-                ]
+            ClearCells();
         
-                ClearCells();
+            playerPosition = newPlayerPosition;
         
-                playerPosition = newPlayerPosition;
-        
-                RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions)
-            }
-            
-        
-        
-
+            MoveEnemies();
+            RenderDungeon()
+        }
     }
 
-
-    function DrawDungeon()
+    function MoveEnemies()
     {
-        dungeonCellPositions = []; // Reset it every time you draw
-        dungeonCellsWithContents = [];
-        
 
+        for(let i = 0; i < enemiesInDungeon.length; i++)
+        {
+            let randomX = Math.floor(Math.random() * 1);
+
+            let enemyX = tempEnemyPositions[i][0];
+            let enemyY = tempEnemyPositions[i][1];
+
+            enemyX += getRandomIntInclusive(-1, 1);
+            enemyY += getRandomIntInclusive(-1, 1);
+
+            if(enemyX === playerPosition[0] && enemyY === playerPosition[1])
+            {
+               break;
+            }
+            else{
+                tempEnemyPositions[i] = [enemyX, enemyY];
+            }
+            
+        }
+
+        
+    }
+
+    function getRandomIntInclusive(min, max) {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+      }
+
+    function BuildDungeon()
+    {
+        SetPlayerStartPosition();
+        SetEnemyStartPositions();
+        //AddIDToEnemies();
+        //CreateObjectsForEnemies();
+        RenderDungeon();
+  
+    }
+
+    function BuildAllDungeonCells()
+    {
+        allDungeonCells = [];
+
+        for(let i = 0; i < rowSize; i++)
+        {
+            let dungeonCellRow = [];
+
+            for(let j = 0; j < rowSize; j++)
+            {
+                const newDungeonCell = new DungeonCell([i,j],"Empty",0, i+j);
+               
+                dungeonCellRow.push(newDungeonCell);
+            }
+            allDungeonCells.push(dungeonCellRow);
+        }
+
+        
+    }
+
+    function SetPlayerStartPosition()
+    {
         let randomX = rowSize - 1; // Currently forcing player to start on bottom row
         let randomY = GenerateRandomPosition();
-
-  
-        
-
         playerPosition = [randomX, randomY];
+    }
+
+    function SetEnemyStartPositions()
+    {
+        console.log(enemiesInDungeon);
 
         for(let i = 0; i < enemiesInDungeon.length; i++)
         {
             let randomEnemyX = GenerateRandomPosition();
             let randomEnemyY = GenerateRandomPosition();
 
-            while(randomEnemyX === randomX && randomEnemyY === randomY)
+            while(randomEnemyX === playerPosition[0] && randomEnemyY === playerPosition[1])
             {
                 randomEnemyX = GenerateRandomPosition();
                 randomEnemyY = GenerateRandomPosition();
@@ -191,105 +228,107 @@ document.addEventListener("DOMContentLoaded", function() {
 
             tempEnemyPositions[i] = [randomEnemyX, randomEnemyY];
         }
-      
-        RenderDungeon(playerPosition[0], playerPosition[1], tempEnemyPositions);
 
-
-        
+        console.log(tempEnemyPositions);
     }
 
+    function AddIDToEnemies()
+    {
+        for(let i = 0; i < enemiesInDungeon.length; i++)
+        {
+            enemiesInDungeon[i][2] = i;
+        }
+    }
+
+    function CreateObjectsForEnemies()
+    {
+        enemyObjectsInDungeon  = [];
+
+        for(let i = 0; i < enemiesInDungeon.length; i++)
+        {
+            let randomEnemyX = GenerateRandomPosition();
+            let randomEnemyY = GenerateRandomPosition();
+
+            while(randomEnemyX === playerPosition[0] && randomEnemyY === playerPosition[1])
+            {
+                randomEnemyX = GenerateRandomPosition();
+                randomEnemyY = GenerateRandomPosition();
+            }
+
+            const newEnemyCell = new DungeonCell([randomEnemyX,randomEnemyY], enemiesInDungeon[i][0], enemiesInDungeon[i][1], enemiesInDungeon[i][2]);
+            enemyObjectsInDungeon.push(newEnemyCell);
+            
+        }
+    }
     function GenerateRandomPosition()
     {
         return  Math.floor( Math.random() * (rowSize));
     }
 
-    function RenderDungeon(playerX, playerY, enemyPositions)
+    function RenderDungeon()
     {
-
-        dungeonCellPositions = [];
+        let idIndex = 0;
         dungeonCellsWithContents = [];
 
-        for(let i = 0; i < rowSize; i++)
+        for(let row = 0; row < rowSize; row++)
         {
-            
-            rowArray = [];
-            cellRow = [];
-
-
-            for(let j = 0; j < rowSize; j++)
+            for(let cell = 0; cell < rowSize; cell++)
             {
-                const cell = document.createElement("p");
-                let newCell = new DungeonCell([i,j], ["", 0]);
-
-                    if(playerX === i && playerY === j)
-                    {
-                        cell.textContent = "P";
-                        cell.classList.add("map-cell-current");
-                        cell.id = "map-cell-current";
-
-                        
-                        newCell.contents = ["player", 10];
-                    }
-                    else
-                    {
-                        
-                        let enemyHere = false;
-
-                        for (let k = 0; k < enemyPositions.length; k++) {
-                            const [ex, ey] = enemyPositions[k];
-                            if (ex === i && ey === j) {
-
-                                
-                                console.log(dungeonCellsWithContents[j]);
-                                const enemyName = enemiesInDungeon[k][0];
-                                const enemyHealth = enemiesInDungeon[k][1];
-
-                                //console.log(enemyName , enemyHealth);
-
-                                
-                                    cell.textContent = enemyName[0] + enemyName[1] + enemyName[2];
-
-                                    
-                                    newCell.contents = [enemyName, enemyHealth];
-                                
-                                
-                                enemyHere = true;
-                                break;
-                            }
-                        }
-
-                        if (!enemyHere) {
-                            cell.textContent = " ";
-                            newCell.contents = ["", null];
-                        }
-
-                    }
-
-                cell.classList.add("map-cell")
-                dungeonMap.appendChild(cell);
-
                 
+                const cellElement = document.createElement("p"); // New cell DOM element
+                cellElement.classList.add("map-cell");
+                
+                allDungeonCells[row][cell].id = idIndex;
 
-                cell.addEventListener('click', (e) =>
+                if(row === playerPosition[0] && cell === playerPosition[1])
                 {
-                    e.preventDefault();
+                    allDungeonCells[row][cell].contents = "Player";
+                    allDungeonCells[row][cell].quantity = 10;
+            
 
-                    ClearCells();
-                    cell.textContent = "O";
-                    cell.classList.add("map-cell-current");
-                    cell.id = "map-cell-current";
-                })
+                    cellElement.textContent = "P";
+                    cellElement.classList.add("map-cell-current");
+                    cellElement.id = "map-cell-current";
 
-                rowArray.push(cell); // Add the cell to the row
-                cellRow.push(newCell);
+                }
+                else
+                {
+                    let enemyHere = false;
+                    
+                    
+                    for(let i = 0; i < tempEnemyPositions.length; i++)
+                    {
+            
+                        if(tempEnemyPositions[i][0] === row && tempEnemyPositions[i][1] === cell)
+                        {
+                            const enemyName = enemiesInDungeon[i][0];
+                            cellElement.textContent = enemyName[0];
+                            const enemyHealth = enemiesInDungeon[i][1];
+                            allDungeonCells[row][cell].contents = enemyName;
+                            allDungeonCells[row][cell].quantity = enemyHealth;
+                            enemyHere = true;
+                            break;
+                            
+                        }
+               
+                    }
 
+                    if(!enemyHere )
+                    {
+                        cellElement.textContent = "///";
+                        cellElement.classList.add('map-cell-empty');
+                        allDungeonCells[row][cell].contents = "Empty";
+                        allDungeonCells[row][cell].quantity = 0;
+                    }
+                    
+                }
+
+                dungeonMap.appendChild(cellElement);
+                idIndex ++;
+     
             }
-            dungeonCellPositions.push(rowArray); // Add the row to the full array
-            dungeonCellsWithContents.push(cellRow);
-        }
-
-
-        
+                
+        } 
     }
 
     function ClearCells()
@@ -313,10 +352,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function CheckForWalls(newX, newY)
     {
-        const upCell = [newX, newY];
-        const downCell = [newX, newY];
-        const leftCell = [newX, newY];
-        const rightCell = [newX, newY];
 
         if(newX >= 0 && newX < rowSize &&
             newY >= 0 && newY < rowSize)
@@ -335,12 +370,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function CheckForEnemies(newX, newY)
     {
-        const upCell = [newX, newY];
-        const downCell = [newX, newY];
-        const leftCell = [newX, newY];
-        const rightCell = [newX, newY];
 
-
+       
         for(let i = 0; i <tempEnemyPositions.length; i++)
         {
             if(newX === tempEnemyPositions[i][0] && newY === tempEnemyPositions[i][1])
@@ -357,3 +388,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 })
+
+
+// To Call Dungeon Cell Content
+// dungeonCellsWithContents for whole 3d Array
+// dungeonCellWithContents[i] with i for horizontal row number
+// dungeonCellWithContents[i][j] with j for individual cell within row
+// dungeonCellWithContents[i][j].position for cell position
+// dungeonCellWithContents[i][j].position[0] for cell position X
+// dungeonCellWithContents[i][j].position[1] for cell position Y
+// dungeonCellWithContents[i][j].contents  for cell contents
+// dungeonCellWithContents[i][j].quantity for cell contents quantity(health etc) (number)
+// dungeonCellWithContents[i][j].id for cell id if not empty

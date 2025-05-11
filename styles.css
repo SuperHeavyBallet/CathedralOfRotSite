@@ -560,6 +560,10 @@ html.light-theme .list-title:hover{
     color: var(--dark-bg-color);
 }
 
+.map-cell-empty{
+    color: var(--dark-muted-color);
+}
+
 .movement-compass{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

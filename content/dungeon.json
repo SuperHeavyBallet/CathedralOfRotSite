@@ -29,16 +29,16 @@
         "name" : "room_3",
         "size" : "225",
         "enemies" : [
-            ["Goblin", 10],
-            ["Goblin", 10],
-            ["Goblin", 10],
-            ["Goblin", 10],
-            ["Goblin", 10],
-            ["Rat", 3],
-            ["Rat", 3],
-            ["Rat", 3],
-            ["Rat", 3],
-            ["Slug", 5]
+            ["Goblin", 10, 0],
+            ["Goblin", 10, 0],
+            ["Goblin", 10, 0],
+            ["Goblin", 10, 0],
+            ["Goblin", 10, 0],
+            ["Rat", 3, 0],
+            ["Rat", 3, 0],
+            ["Rat", 3, 0],
+            ["Rat", 3, 0],
+            ["Slug", 5, 0]
         ]
     }
 ]
