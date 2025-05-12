@@ -133,13 +133,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 playerPosition[1] + amount[1]
             ];
         
-            ClearCells();
+            
         
             playerPosition = newPlayerPosition;
         
-            MoveEnemies();
-            RenderDungeon()
         }
+
+        ClearCells();
+        MoveEnemies();
+        RenderDungeon()
     }
 
     function MoveEnemies()
@@ -154,13 +156,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
             enemyX += getRandomIntInclusive(-1, 1);
             enemyY += getRandomIntInclusive(-1, 1);
+            let randomDirection  = getRandomIntInclusive(0,1);
+
+            
 
             if(enemyX === playerPosition[0] && enemyY === playerPosition[1])
             {
                break;
             }
             else{
-                tempEnemyPositions[i] = [enemyX, enemyY];
+
+                if(randomDirection === 0 && enemyX < rowSize)
+                {
+                    tempEnemyPositions[i][0] = enemyX;
+                }
+                else if(enemyY < rowSize)
+                {
+                    tempEnemyPositions[i][1] = enemyX;
+                }
+                
             }
             
         }
