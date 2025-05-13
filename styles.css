@@ -555,9 +555,16 @@ html.light-theme .list-title:hover{
 
 }
 
+.map-cell-door{
+  
+    color: var(--light-muted-color);
+    z-index: 1;
+}
+
 .map-cell-current{
     background-color: var(--dark-text-color);
     color: var(--dark-bg-color);
+    z-index: 20;
 }
 
 .map-cell-empty{

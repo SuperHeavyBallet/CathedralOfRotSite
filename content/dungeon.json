@@ -1,6 +1,7 @@
 [
     {
-        "name" : "room_1",
+        "name" : "room_0",
+        "roomIndex" : 0,
         "size" : "100",
         "enemies" : [
             ["Goblin", 10],
@@ -9,10 +10,14 @@
             ["Rat", 3],
             ["Rat", 3],
             ["Slug", 5]
+        ],
+        "doors" : [
+            1
         ]
     },
     {
-        "name" : "room_2",
+        "name" : "room_1",
+        "roomIndex" : 1,
         "size" : "144",
         "enemies" : [
             "Goblin",
@@ -23,10 +28,15 @@
             "Rat",
             "Slug",
             "Slug"
+        ],
+        "doors" : [
+            0,
+            2
         ]
     },
     {
-        "name" : "room_3",
+        "name" : "room_2",
+        "roomIndex" : 2,
         "size" : "225",
         "enemies" : [
             ["Goblin", 10, 0],
@@ -39,6 +49,10 @@
             ["Rat", 3, 0],
             ["Rat", 3, 0],
             ["Slug", 5, 0]
+        ],
+        "doorsToRoom" : [
+            1
+           
         ]
     }
 ]

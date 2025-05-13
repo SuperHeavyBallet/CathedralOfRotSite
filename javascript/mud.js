@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let rowArray;
     let cellRow;
     let moveIsValid = false;
+    let enemyLoopInterval = null;
+    let enemiesCanAct = true;
 
     const dungeonMap = document.getElementById("dungeonMap");
 
@@ -30,6 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let tempEnemyPositions= [];
     let enemiesInDungeon = [];
     let enemyObjectsInDungeon = [];
+    let doorsInRoom = [];
+    let randomDoorCellTop;
+    let randomDoorCellBottom;
+
+    let roomIndex = 0;
 
     let allDungeonCells = [];
 
@@ -49,8 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const reloadButton = document.getElementById("reloadButton");
     reloadButton.addEventListener("click", (e) => {
         e.preventDefault();
-        ClearCells();
-        BuildDungeon();
+        ReloadMap();
+
+        
     })
 
     GetDungeon();
@@ -105,9 +113,25 @@ document.addEventListener("DOMContentLoaded", function() {
       
             enemiesInDungeon = dungeonData[tempDungeonIndex].enemies;
 
+
             BuildAllDungeonCells();
-            BuildDungeon();
+            BuildDungeon(tempDungeonIndex);
+            StartEnemyLoop(); // Add this line
         });  
+    }
+
+    function GetDoors(sourceJson, roomIndex)
+    {
+        doorsInRoom = sourceJson[roomIndex].doorsToRoom;
+        //console.log("Doors in Room: ");
+
+        for(let i = 0; i < doorsInRoom.length; i++)
+        {
+           // console.log("Door " + i + " to Room " + doorsInRoom[i])
+        }
+
+       // console.log("Room: " + tempDungeonIndex);
+
     }
 
     function AddMoveEventListener(arrow, positionChange)
@@ -140,44 +164,78 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         ClearCells();
-        MoveEnemies();
-        RenderDungeon()
+        //MoveEnemies();
+        RenderDungeon();
+    }
+
+    function ReloadMap()
+    {
+        StopEnemyLoop();
+        ClearCells();
+        BuildDungeon(tempDungeonIndex);
+        StartEnemyLoop();
     }
 
     function MoveEnemies()
     {
 
+      
+            let occupiedPositions = new Set();
+
+        // Add player position
+        occupiedPositions.add(`${playerPosition[0]},${playerPosition[1]}`);
+
+        // Add current enemy positions
+        for (let pos of tempEnemyPositions) 
+        {
+            occupiedPositions.add(`${pos[0]},${pos[1]}`);
+        };
+
+        // New enemy positions to replace tempEnemyPositions at end
+        let newEnemyPositions = [];
+
+
+
         for(let i = 0; i < enemiesInDungeon.length; i++)
         {
-            let randomX = Math.floor(Math.random() * 1);
+            let [enemyX, enemyY] = tempEnemyPositions[i];
+            let randomDirection = getRandomIntInclusive(0, 1); // 0 = x, 1 = y
+            let movement = getRandomIntInclusive(-1, 1);
 
-            let enemyX = tempEnemyPositions[i][0];
-            let enemyY = tempEnemyPositions[i][1];
+            let newX = enemyX;
+            let newY = enemyY;
 
-            enemyX += getRandomIntInclusive(-1, 1);
-            enemyY += getRandomIntInclusive(-1, 1);
-            let randomDirection  = getRandomIntInclusive(0,1);
-
-            
-
-            if(enemyX === playerPosition[0] && enemyY === playerPosition[1])
-            {
-               break;
+            if (randomDirection === 0) {
+                newX = enemyX + movement;
+            } else {
+                newY = enemyY + movement;
             }
-            else{
 
-                if(randomDirection === 0 && enemyX < rowSize)
-                {
-                    tempEnemyPositions[i][0] = enemyX;
-                }
-                else if(enemyY < rowSize)
-                {
-                    tempEnemyPositions[i][1] = enemyX;
-                }
-                
+            // Stay within bounds
+            if (newX < 0 || newX >= rowSize || newY < 0 || newY >= rowSize) {
+                newX = enemyX;
+                newY = enemyY;
             }
+
+
+            // Check if new position is already occupied
+            if (!occupiedPositions.has(`${newX},${newY}`)) {
+                newEnemyPositions.push([newX, newY]);
+                occupiedPositions.add(`${newX},${newY}`);
+            } else {
+                // Stay in place if move not allowed
+                newEnemyPositions.push([enemyX, enemyY]);
+            }
+        
             
         }
+
+        tempEnemyPositions = newEnemyPositions;
+        
+        ClearCells();
+        RenderDungeon();
+      
+        
 
         
     }
@@ -188,15 +246,22 @@ document.addEventListener("DOMContentLoaded", function() {
         return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
       }
 
-    function BuildDungeon()
+    function BuildDungeon(roomIndex)
     {
+        ClearCells();
+
+        randomDoorCellTop = GenerateRandomPosition();
+        randomDoorCellBottom = GenerateRandomPosition();
+
         SetPlayerStartPosition();
         SetEnemyStartPositions();
-        //AddIDToEnemies();
-        //CreateObjectsForEnemies();
+        GetDoors(dungeonData, roomIndex);
         RenderDungeon();
+        
   
     }
+
+
 
     function BuildAllDungeonCells()
     {
@@ -227,7 +292,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function SetEnemyStartPositions()
     {
-        console.log(enemiesInDungeon);
 
         for(let i = 0; i < enemiesInDungeon.length; i++)
         {
@@ -242,8 +306,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             tempEnemyPositions[i] = [randomEnemyX, randomEnemyY];
         }
-
-        console.log(tempEnemyPositions);
     }
 
     function AddIDToEnemies()
@@ -279,22 +341,101 @@ document.addEventListener("DOMContentLoaded", function() {
         return  Math.floor( Math.random() * (rowSize));
     }
 
+    
+
     function RenderDungeon()
     {
         let idIndex = 0;
         dungeonCellsWithContents = [];
+        let doorPositions = []
+        let rowNeedsDoor;
+
+
+        for(let i = 0; i < doorsInRoom.length; i++)
+        {
+            let nextRoomFromDoor = doorsInRoom[i];
+
+            if(nextRoomFromDoor < tempDungeonIndex)
+            {
+               // console.log(`Door should go at TOP, goes to room: ${nextRoomFromDoor} From room: ${tempDungeonIndex}`);
+                doorPositions.push([i, 0]);
+            }
+            else if(nextRoomFromDoor > tempDungeonIndex)
+            {
+               // console.log(`Door should go at BOTTOM, goes to room: ${nextRoomFromDoor} From room: ${tempDungeonIndex}`);
+                doorPositions.push([i, rowSize - 1]);
+            }
+            else{
+                //console.log("Door points to itself...");
+            }
+ 
+            
+        }
+
+        for(let i = 0; i < doorPositions.length; i++)
+        {
+            // playerPosition 0 == row, 1 == cell
+            console.log("Player: Row:" + playerPosition[0] + ", Cell:" + playerPosition[1]);
+
+            console.log("Door: " + doorPositions)
+
+            if(doorPositions[i][1] === playerPosition[0] && doorPositions[i][0] === playerPosition[1])
+            {
+                console.log("Player On Door!");
+            }
+        }
+        
+        //console.log(doorPositions);
 
         for(let row = 0; row < rowSize; row++)
         {
+            rowNeedsDoor = false;
+
+            for(let i = 0; i < doorPositions.length; i++)
+            {
+                if(doorPositions[i][1] === row)
+                {
+                        rowNeedsDoor = true;
+                }
+                else
+                {
+                    rowNeedsDoor = false;
+                }
+            }
+
+        
+
             for(let cell = 0; cell < rowSize; cell++)
             {
+
                 
+                    
+                  
+
                 const cellElement = document.createElement("p"); // New cell DOM element
                 cellElement.classList.add("map-cell");
                 
                 allDungeonCells[row][cell].id = idIndex;
 
-                if(row === playerPosition[0] && cell === playerPosition[1])
+                //console.log(playerPosition);
+
+                
+
+                if(rowNeedsDoor && cell === randomDoorCellTop)
+                {
+
+                   // console.log("Cell: " + cell + " should be a door");
+
+                    allDungeonCells[row][cell].contents = "Door";
+                    allDungeonCells[row][cell].quantity = 10;
+
+                    cellElement.textContent = "D";
+                    cellElement.classList.add("map-cell-door");
+                    
+
+                }
+
+                else if(row === playerPosition[0] && cell === playerPosition[1])
                 {
                     allDungeonCells[row][cell].contents = "Player";
                     allDungeonCells[row][cell].quantity = 10;
@@ -347,18 +488,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function ClearCells()
     {
-
+   
+        
         while(dungeonMap.firstChild){
             dungeonMap.removeChild(dungeonMap.lastChild);
         }
 
+        /*
         const previousPositionCell = document.getElementById("map-cell-current");
 
         if (previousPositionCell) {
             previousPositionCell.removeAttribute("id");
             previousPositionCell.classList.remove("map-cell-current");
             previousPositionCell.textContent = " ";
-        }
+        }*/
   
         
        
@@ -398,6 +541,23 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         
+    }
+
+    function StartEnemyLoop() {
+        if (enemyLoopInterval !== null) {
+            clearInterval(enemyLoopInterval);
+        }
+    
+        enemyLoopInterval = setInterval(() => {
+            MoveEnemies();
+        }, 3000);
+    }
+
+    function StopEnemyLoop() {
+        if (enemyLoopInterval !== null) {
+            clearInterval(enemyLoopInterval);
+            enemyLoopInterval = null;
+        }
     }
 
 
