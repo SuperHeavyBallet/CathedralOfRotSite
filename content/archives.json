@@ -285,7 +285,7 @@
       {
         "id": "",
         "category": "Creatures",
-        "title": "Whitespider",
+        "title": "Whitelegs",
         "content": [
             "Huge, slow, but harmless spiders. Crawl around large open caves, and will squeeze the whole body and legs into holes for nesting. Long, slender legs and small central body, no eyes, light, fine hair across their bodies. White colour, a slight glow makes them stand out in the dark like ghosts. Feed on dead organic tissue, are immune to Rotfungus, can eat it with no harm.",
             "Scary, but safe."
@@ -295,7 +295,7 @@
       {
         "id": "",
         "category": "Creatures",
-        "title": "Blackspider",
+        "title": "Blacklegs",
         "content": [
             "Relatively small ( about the size of a boot ), solitary hunters. Larger body, angular shape, a single pair of tiny eyes above fangs. Coarse, dark hair across the whole body. Slender, sharp legs ending in spiked shapes.",
             "They hide in tunnels and cave corners, burrow into holes and crevices. Spin large webs across openings like tunnel passages or floor holes. Venomous, can kill many creatures and wrap them in cocoons while slowly dissolving them to eat.",
@@ -322,7 +322,7 @@
         "title": "Rockcrawler",
         "content": [
             "Essentially a cave centipede. About 1 metre in length, many legs and antennae, pale brown and lightly haired across the body. Small fangs on an eyeless face.",
-            "Moves very quickly and will attack, although has difficulty with larger prey, so often eats smaller bugs like Borebugs and Blackspiders. Will also eat Wallwisps if able to ambush them, and will follow Stoneslugs while repeatedly attacking them to eventually take them down, but rarely eats the actual slug because it tastes foul.",
+            "Moves very quickly and will attack, although has difficulty with larger prey, so often eats smaller bugs like Borebugs and Blacklegs. Will also eat Wallwisps if able to ambush them, and will follow Stoneslugs while repeatedly attacking them to eventually take them down, but rarely eats the actual slug because it tastes foul.",
             "They have been trapped and brought into settlements for periodic pest control given their effectiveness at eliminating rat populations.",
             "Found in tunnels across walls, floors, ceilings, but more often in large, open caves across the ceiling and walls, likes to hang out in Dimwood areas, although avoids light."
         ],
@@ -421,7 +421,7 @@
            "~ Dorfs ~",
            "Mostly graze on fungus and Rockslime (Thick, edible green mats of condensed mineral algae which forms on rock surfaces near hot fissures).",
            "~ Dwarfs ~",
-           "Will eat fungus, Rockslime, fish, Wetsnake, Rats, Glowbugs, Wallwisps - will eat Fallclaws, Rockcrawlers, Whitespider and Blackspiders and Borebugs but prefer not to.",
+           "Will eat fungus, Rockslime, fish, Wetsnake, Rats, Glowbugs, Wallwisps - will eat Fallclaws, Rockcrawlers, Whitelegs and Blacklegs and Borebugs but prefer not to.",
            "~ Dwarvs ~",
            "Will eat essentially the same as Dwarfs, except will only eat bugs and ‘lowfood’ if presented as a superfluous, junk food source eaten only for fun, rather than survival. They prefer to have meals prepared for them before eating (although after leaving the walls of settlements will immediately resort to the food source and style of Dwarfs).",
            "~ Dwargs ~",
