@@ -39,16 +39,16 @@
         "roomIndex" : 2,
         "size" : "225",
         "enemies" : [
-            ["Goblin", 10, 0],
-            ["Goblin", 10, 0],
-            ["Goblin", 10, 0],
-            ["Goblin", 10, 0],
-            ["Goblin", 10, 0],
-            ["Rat", 3, 0],
-            ["Rat", 3, 0],
-            ["Rat", 3, 0],
-            ["Rat", 3, 0],
-            ["Slug", 5, 0]
+            ["Goblin", 10, "normalSpeed", 0],
+            ["Goblin", 10, "normalSpeed", 0],
+            ["Goblin", 10, "normalSpeed", 0],
+            ["Goblin", 10, "normalSpeed", 0],
+            ["Goblin", 10, "normalSpeed",0],
+            ["Rat", 3, "fastSpeed" ,0],
+            ["Rat", 3, "fastSpeed" ,0],
+            ["Rat", 3, "fastSpeed" ,0],
+            ["Rat", 3, "fastSpeed" ,0],
+            ["Slug", 5, "slowSpeed" ,0]
         ],
         "doorsToRoom" : [
             1

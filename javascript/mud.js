@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let moveIsValid = false;
     let enemyLoopInterval = null;
     let enemiesCanAct = true;
+    const fastMovementDelay = 1500;
+    let fastSpeedCanMove = true;
+    const normalMovementDelay = 3000;
+    let normalSpeedCanMove = true;
+    const slowMovementDelay = 4500;
+    let slowSpeedCanMove = true;
 
     const dungeonMap = document.getElementById("dungeonMap");
 
@@ -176,11 +182,9 @@ document.addEventListener("DOMContentLoaded", function() {
         StartEnemyLoop();
     }
 
-    function MoveEnemies()
+    function MoveFastEnemies()
     {
-
-      
-            let occupiedPositions = new Set();
+        let occupiedPositions = new Set();
 
         // Add player position
         occupiedPositions.add(`${playerPosition[0]},${playerPosition[1]}`);
@@ -193,8 +197,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // New enemy positions to replace tempEnemyPositions at end
         let newEnemyPositions = [];
-
-
 
         for(let i = 0; i < enemiesInDungeon.length; i++)
         {
@@ -229,6 +231,92 @@ document.addEventListener("DOMContentLoaded", function() {
         
             
         }
+
+        tempEnemyPositions = newEnemyPositions;
+        
+        ClearCells();
+        RenderDungeon();
+
+
+
+
+    }
+
+    function MoveEnemies()
+    {
+
+      
+            let occupiedPositions = new Set();
+
+        // Add player position
+        occupiedPositions.add(`${playerPosition[0]},${playerPosition[1]}`);
+
+        // Add current enemy positions
+        for (let pos of tempEnemyPositions) 
+        {
+            occupiedPositions.add(`${pos[0]},${pos[1]}`);
+        };
+
+        // New enemy positions to replace tempEnemyPositions at end
+        let newEnemyPositions = [];
+
+
+
+        
+        for(let i = 0; i < enemiesInDungeon.length; i++)
+        {
+            let [enemyX, enemyY] = tempEnemyPositions[i];
+            let randomDirection = getRandomIntInclusive(0, 1); // 0 = x, 1 = y
+            let speedMultiplier = 2;
+
+            if(enemiesInDungeon[i][2] === "fastSpeed")
+            {
+                speedMultiplier = 3;
+            }
+            else if (enemiesInDungeon[i][2] === "slowSpeed")
+            {
+                speedMultiplier = 1;
+            }
+            else
+            {
+                speedMultiplier = 2;
+            }
+            let movement = getRandomIntInclusive(-1 * speedMultiplier, 1* speedMultiplier);
+
+            let newX = enemyX;
+            let newY = enemyY;
+
+            if (randomDirection === 0) {
+                newX = enemyX + movement;
+            } else {
+                newY = enemyY + movement;
+            }
+
+            // Stay within bounds
+            if (newX < 0 || newX >= rowSize || newY < 0 || newY >= rowSize) {
+                newX = enemyX;
+                newY = enemyY;
+            }
+
+
+            // Check if new position is already occupied
+            if (!occupiedPositions.has(`${newX},${newY}`)) {
+                newEnemyPositions.push([newX, newY]);
+                occupiedPositions.add(`${newX},${newY}`);
+            } else {
+                // Stay in place if move not allowed
+                newEnemyPositions.push([enemyX, enemyY]);
+            }
+        }
+            
+
+            
+        
+            
+
+            
+            
+        
 
         tempEnemyPositions = newEnemyPositions;
         
@@ -375,13 +463,13 @@ document.addEventListener("DOMContentLoaded", function() {
         for(let i = 0; i < doorPositions.length; i++)
         {
             // playerPosition 0 == row, 1 == cell
-            console.log("Player: Row:" + playerPosition[0] + ", Cell:" + playerPosition[1]);
+            //console.log("Player: Row:" + playerPosition[0] + ", Cell:" + playerPosition[1]);
 
-            console.log("Door: " + doorPositions)
+            //console.log("Door: " + doorPositions)
 
             if(doorPositions[i][1] === playerPosition[0] && doorPositions[i][0] === playerPosition[1])
             {
-                console.log("Player On Door!");
+                //console.log("Player On Door!");
             }
         }
         
@@ -545,12 +633,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function StartEnemyLoop() {
         if (enemyLoopInterval !== null) {
-            clearInterval(enemyLoopInterval);
+            clearInterval(enemyNormalSpeedLoopInterval);
         }
+
     
-        enemyLoopInterval = setInterval(() => {
+        enemyNormalSpeedLoopInterval = setInterval(() => {
+            
+            ResetCanMove(normalSpeedCanMove);
             MoveEnemies();
-        }, 3000);
+            normalSpeedCanMove = false;
+
+        }, normalMovementDelay);
     }
 
     function StopEnemyLoop() {
@@ -558,6 +651,11 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(enemyLoopInterval);
             enemyLoopInterval = null;
         }
+    }
+
+    function ResetCanMove(canMove)
+    {
+        canMove = true;
     }
 
 
