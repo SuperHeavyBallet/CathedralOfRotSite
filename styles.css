@@ -75,19 +75,28 @@ table {
 
 html {
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    min-height: 90vh;
   }
 
 body{
-    background-color: var(--dark-bg-color);
-    color: var(--dark-text-color);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: flex-start;
+    justify-content: space-between;
     
     
-    min-height: 90vh; /* <-- Important: forces body to at least fill full height */
+   
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+
+     /* <-- Important: forces body to at least fill full height */
 
     font-family: 'Cardo', serif;
     font-optical-sizing: auto;

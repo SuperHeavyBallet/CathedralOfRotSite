@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let doorsInRoom = [];
     let randomDoorCellTop;
     let randomDoorCellBottom;
+    let doorPositions = [];
+    let doorCoordinates = [];
 
     let roomIndex = 0;
 
@@ -129,14 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function GetDoors(sourceJson, roomIndex)
     {
         doorsInRoom = sourceJson[roomIndex].doorsToRoom;
-        //console.log("Doors in Room: ");
-
-        for(let i = 0; i < doorsInRoom.length; i++)
-        {
-           // console.log("Door " + i + " to Room " + doorsInRoom[i])
-        }
-
-       // console.log("Room: " + tempDungeonIndex);
+  
 
     }
 
@@ -155,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         CheckForWalls(newX, newY);
         CheckForEnemies(newX, newY);
+        CheckForDoor(newX, newY);
 
         if(moveIsValid)
         {
@@ -170,8 +166,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         ClearCells();
-        //MoveEnemies();
         RenderDungeon();
+    }
+
+    function CheckForDoor(posX, posY)
+    {
+        console.log("Check Door: " + posX + " , " + posY);
+
+        for(let i = 0; i < doorCoordinates.length; i++)
+        {
+            if(doorCoordinates[i][0] === posX && doorCoordinates[i][1] === posY)
+            {
+                console.log("player Move to Door");
+                tempDungeonIndex = 1;
+                ReloadMap();
+            }
+        }
+        
+        console.log(doorCoordinates);
     }
 
     function ReloadMap()
@@ -182,65 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
         StartEnemyLoop();
     }
 
-    function MoveFastEnemies()
-    {
-        let occupiedPositions = new Set();
-
-        // Add player position
-        occupiedPositions.add(`${playerPosition[0]},${playerPosition[1]}`);
-
-        // Add current enemy positions
-        for (let pos of tempEnemyPositions) 
-        {
-            occupiedPositions.add(`${pos[0]},${pos[1]}`);
-        };
-
-        // New enemy positions to replace tempEnemyPositions at end
-        let newEnemyPositions = [];
-
-        for(let i = 0; i < enemiesInDungeon.length; i++)
-        {
-            let [enemyX, enemyY] = tempEnemyPositions[i];
-            let randomDirection = getRandomIntInclusive(0, 1); // 0 = x, 1 = y
-            let movement = getRandomIntInclusive(-1, 1);
-
-            let newX = enemyX;
-            let newY = enemyY;
-
-            if (randomDirection === 0) {
-                newX = enemyX + movement;
-            } else {
-                newY = enemyY + movement;
-            }
-
-            // Stay within bounds
-            if (newX < 0 || newX >= rowSize || newY < 0 || newY >= rowSize) {
-                newX = enemyX;
-                newY = enemyY;
-            }
-
-
-            // Check if new position is already occupied
-            if (!occupiedPositions.has(`${newX},${newY}`)) {
-                newEnemyPositions.push([newX, newY]);
-                occupiedPositions.add(`${newX},${newY}`);
-            } else {
-                // Stay in place if move not allowed
-                newEnemyPositions.push([enemyX, enemyY]);
-            }
-        
-            
-        }
-
-        tempEnemyPositions = newEnemyPositions;
-        
-        ClearCells();
-        RenderDungeon();
-
-
-
-
-    }
+   
 
     function MoveEnemies()
     {
@@ -435,7 +389,8 @@ document.addEventListener("DOMContentLoaded", function() {
     {
         let idIndex = 0;
         dungeonCellsWithContents = [];
-        let doorPositions = []
+        doorPositions = []
+  
         let rowNeedsDoor;
 
 
@@ -460,18 +415,6 @@ document.addEventListener("DOMContentLoaded", function() {
             
         }
 
-        for(let i = 0; i < doorPositions.length; i++)
-        {
-            // playerPosition 0 == row, 1 == cell
-            //console.log("Player: Row:" + playerPosition[0] + ", Cell:" + playerPosition[1]);
-
-            //console.log("Door: " + doorPositions)
-
-            if(doorPositions[i][1] === playerPosition[0] && doorPositions[i][0] === playerPosition[1])
-            {
-                //console.log("Player On Door!");
-            }
-        }
         
         //console.log(doorPositions);
 
@@ -519,6 +462,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     cellElement.textContent = "D";
                     cellElement.classList.add("map-cell-door");
+
+                    if(doorCoordinates.length === 0)
+                    {
+                        doorCoordinates.push([row, cell]);
+                    }
+                    
                     
 
                 }
