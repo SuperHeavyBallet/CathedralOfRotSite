@@ -40,6 +40,7 @@
         <div class="mud-section" id="mudContainer">
             <div class="dungeon-map" id="dungeonMap"></div>
 
+            <div class="dungeon-input">
             <div class="movement-compass" id="movementCompass">
                 <h3 id="moveUp" class="move-up">▲</h3>
                 <h3 id="moveDown" class="move-down">▼</h3>
@@ -48,9 +49,24 @@
                 <h3 id="attackButton" class="attack-button">!</h3>
             </div>
 
+            
+
+            <div class="text-input">
+                <p class="textOuput" id="textOuput">
+                    ...
+                </p>
+                <form>
+                    <label for="textInput"></label>
+                    <input name="textInput" id="textInput" type="text">
+                    <button type="submit" id="textInputSend">Send</button>
+                </form>
+
+            </div>
+
             <div>
                 <h3 class="reload-button" id="reloadButton">Reload</h3>
             </div>
+        </div>
         </div>
         
 </body>

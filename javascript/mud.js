@@ -16,6 +16,33 @@ document.addEventListener("DOMContentLoaded", function() {
     const slowMovementDelay = 4500;
     let slowSpeedCanMove = true;
 
+    const dungeonInputField = document.getElementById("textInput");
+    const dungeonInputSend = document.getElementById("textInputSend");
+    let directionInput = "";
+
+    const textOutput = document.getElementById("textOuput");
+
+    dungeonInputSend.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if(dungeonInputField.value === "north")
+        {
+            movePosition([-1,0]);
+        }
+        else if(dungeonInputField.value === "south")
+        {
+            movePosition([1,0]);
+        }
+        else if (dungeonInputField.value === "east")
+        {
+            movePosition([0, -1]);
+        }
+        else if (dungeonInputField.value === "west")
+        {
+            movePosition([0, 1]);
+        }
+    })
+
     const dungeonMap = document.getElementById("dungeonMap");
 
     class DungeonCell {
@@ -100,6 +127,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
            
         }
+
+        MoveEnemies();
         ClearCells();
         RenderDungeon();
     
@@ -144,16 +173,53 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    function DescribeCurrentPosition()
+    {
+        //const playerPosition = [playerPosition[0], playerPosition[1]];
+
+        textOutput.textContent = `You are stood at ${playerPosition[0]} , ${playerPosition[1]}  `;
+
+        const northCellPosition = [playerPosition[0]-1, playerPosition[1]];
+        PreCheckForWalls(northCellPosition[0], northCellPosition[1]);
+
+        const southCellPosition = [playerPosition[0]+1, playerPosition[1]];
+        PreCheckForWalls(southCellPosition[0], southCellPosition[1]);
+    }
+
     function movePosition(amount)
     {   
+        textOutput.textContent = "";
+
         const [newX, newY] = [playerPosition[0] + amount[0], playerPosition[1] + amount[1]];
 
         CheckForWalls(newX, newY);
         CheckForEnemies(newX, newY);
         CheckForDoor(newX, newY);
+        
 
         if(moveIsValid)
         {
+            console.log("To move: " + amount);
+            let moveDirection = ""
+           
+            if(amount[0] === 1 && amount[1] === 0)
+            {
+                moveDirection = "south";
+            }
+            else if(amount[0] === -1 && amount[1] === 0)
+            {
+                moveDirection = "north";
+            }else if(amount[0] === 0 && amount[1] === -1)
+            {
+                moveDirection = "east";
+            }
+            else if(amount[0] === 0 && amount[1] === 1)
+            {
+                moveDirection = "west";
+            }
+
+        
+            textOutput.textContent = `You move ${moveDirection}...`
             const newPlayerPosition = [
                 playerPosition[0] + amount[0],
                 playerPosition[1] + amount[1]
@@ -162,28 +228,38 @@ document.addEventListener("DOMContentLoaded", function() {
             
         
             playerPosition = newPlayerPosition;
+
+            MoveEnemies();
         
         }
 
         ClearCells();
         RenderDungeon();
+        DescribeCurrentPosition();
+        
+    }
+
+    function PreCheckForWall(posX, posY)
+    {
+        if(newX >= 0 && newX < rowSize &&
+            newY >= 0 && newY < rowSize)
+        {
+            moveIsValid = true; 
+        }
+        else
+        {
+            moveIsValid = false;
+            obstacle = "wall"
+            textOutput.textContent = `You hit a ${obstacle}!`
+          
+        }
     }
 
     function CheckForDoor(posX, posY)
     {
-        console.log("Check Door: " + posX + " , " + posY);
 
-        for(let i = 0; i < doorCoordinates.length; i++)
-        {
-            if(doorCoordinates[i][0] === posX && doorCoordinates[i][1] === posY)
-            {
-                console.log("player Move to Door");
-                tempDungeonIndex = 1;
-                ReloadMap();
-            }
-        }
+
         
-        console.log(doorCoordinates);
     }
 
     function ReloadMap()
@@ -221,8 +297,9 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             let [enemyX, enemyY] = tempEnemyPositions[i];
             let randomDirection = getRandomIntInclusive(0, 1); // 0 = x, 1 = y
-            let speedMultiplier = 2;
+            let speedMultiplier = 1;
 
+            /*
             if(enemiesInDungeon[i][2] === "fastSpeed")
             {
                 speedMultiplier = 3;
@@ -234,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
             else
             {
                 speedMultiplier = 2;
-            }
+            }*/
             let movement = getRandomIntInclusive(-1 * speedMultiplier, 1* speedMultiplier);
 
             let newX = enemyX;
@@ -299,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
         SetEnemyStartPositions();
         GetDoors(dungeonData, roomIndex);
         RenderDungeon();
-        
+        textOutput.textContent = `You enter dungeon ${roomIndex}...`;
   
     }
 
@@ -556,7 +633,8 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             moveIsValid = false;
             obstacle = "wall"
-            window.alert(`You hit a ${obstacle}!`);
+            textOutput.textContent = `You hit a ${obstacle}!`
+          
         }
 
       
@@ -572,7 +650,8 @@ document.addEventListener("DOMContentLoaded", function() {
             {
                 moveIsValid = false;
                 obstacle = enemiesInDungeon[i][0];
-                window.alert(`A ${obstacle} blocks your path!`);
+                textOutput.textContent = `A ${obstacle} blocks your path!`
+
     
                 
             }
@@ -589,7 +668,7 @@ document.addEventListener("DOMContentLoaded", function() {
         enemyNormalSpeedLoopInterval = setInterval(() => {
             
             ResetCanMove(normalSpeedCanMove);
-            MoveEnemies();
+            //MoveEnemies();
             normalSpeedCanMove = false;
 
         }, normalMovementDelay);

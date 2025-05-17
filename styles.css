@@ -580,6 +580,14 @@ html.light-theme .list-title:hover{
     color: var(--dark-muted-color);
 }
 
+.dungeon-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+    border: 1px solid var(--dark-border-color);
+}
+
 .movement-compass{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
