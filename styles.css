@@ -656,3 +656,32 @@ html.light-theme .list-title:hover{
     background-color: var(--dark-text-color);
     color: var(--dark-bg-color);
 }
+
+.text-input-area{
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--dark-border-color);
+
+
+}
+.text-input-area input{
+    border: 1px solid var(--dark-border-color);
+    background-color: var(--dark-text-color);
+    font-family: 'Cardo', serif;
+
+}
+
+.text-send-button{
+    border: 1px solid var(--dark-border-color);
+    
+    
+    background-color: #7c1f1f;
+    color: var(--light-bg-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}

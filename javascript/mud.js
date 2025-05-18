@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const dungeonInputSend = document.getElementById("textInputSend");
     let directionInput = "";
 
-    const textOutput = document.getElementById("textOuput");
+    const textOutput = document.getElementById("textOutput");
 
     dungeonInputSend.addEventListener("click", (e) => {
         e.preventDefault();
@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let allDungeonCells = [];
 
+    let textOutputArray = [];
+
     const attackButton = document.getElementById("attackButton");
 
     attackButton.addEventListener("click", (e) => {
@@ -100,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function Attack()
     {
+        ClearPreviousText();
+
         const [px, py] = playerPosition;
 
         const directions = [
@@ -128,12 +132,28 @@ document.addEventListener("DOMContentLoaded", function() {
            
         }
 
+     
+
         MoveEnemies();
         ClearCells();
         RenderDungeon();
     
     
 
+    }
+
+    function ClearPreviousText()
+    {
+        //console.log("Called Clear Previous Text");
+
+        //console.log("Child count before clear:", textOutput.childNodes.length);
+
+
+        while (textOutput.lastChild) {
+            textOutput.removeChild(textOutput.lastChild);
+        }
+        
+        textOutputArray = [];
     }
 
     function GetDungeon()
@@ -175,23 +195,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function DescribeCurrentPosition()
     {
-        //const playerPosition = [playerPosition[0], playerPosition[1]];
+        textOuputArray = [];
 
-        textOutput.textContent = `You are stood at ${playerPosition[0]} , ${playerPosition[1]}  `;
+ 
 
-        const northCellPosition = [playerPosition[0]-1, playerPosition[1]];
-        PreCheckForWalls(northCellPosition[0], northCellPosition[1]);
+        let freeNorth = PreCheckForWalls(playerPosition[0]-1, playerPosition[1]);
+        let freeSouth = PreCheckForWalls(playerPosition[0]+1, playerPosition[1]);
+        let freeEast = PreCheckForWalls(playerPosition[0], playerPosition[1]-1);
+        let freeWest = PreCheckForWalls(playerPosition[0], playerPosition[1]+1);
 
-        const southCellPosition = [playerPosition[0]+1, playerPosition[1]];
-        PreCheckForWalls(southCellPosition[0], southCellPosition[1]);
+        //freeNorth = PreCheckForEnemies(playerPosition[0]-1, playerPosition[1]);
+        //freeSouth = PreCheckForEnemies(playerPosition[0]+1, playerPosition[1]);
+        //freeEast = PreCheckForEnemies(playerPosition[0], playerPosition[1]-1);
+        //freeWest = PreCheckForEnemies(playerPosition[0], playerPosition[1]+1);
+
+        console.log("North: " + freeNorth);
+        console.log("South: " + freeSouth);
+        console.log("East: " + freeEast);
+        console.log("West: " + freeWest);
+
+
+        if (!freeNorth) {
+            textOutputArray.push("North is blocked.");
+        }
+
+        if (!freeSouth) {
+            textOutputArray.push("South is blocked.");
+        }
+
+        if (!freeEast) {
+            textOutputArray.push("East is blocked.");
+        }
+
+        if (!freeWest) {
+            textOutputArray.push("West is blocked.");
+        }
+        
+        if(CheckDistantEnemies(playerPosition[0], playerPosition[1]))
+        {
+            textOutputArray.push("Something lurks nearby.")
+        }
+
+        for(let i = 0; i < textOutputArray.length; i++)
+        {
+            const newText = document.createElement("p");
+            newText.textContent = textOutputArray[i];
+
+            textOutput.appendChild(newText);
+        }
     }
 
     function movePosition(amount)
     {   
-        textOutput.textContent = "";
+        
 
         const [newX, newY] = [playerPosition[0] + amount[0], playerPosition[1] + amount[1]];
 
+        ClearPreviousText();
         CheckForWalls(newX, newY);
         CheckForEnemies(newX, newY);
         CheckForDoor(newX, newY);
@@ -199,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(moveIsValid)
         {
-            console.log("To move: " + amount);
+            //console.log("To move: " + amount);
             let moveDirection = ""
            
             if(amount[0] === 1 && amount[1] === 0)
@@ -219,7 +279,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
         
-            textOutput.textContent = `You move ${moveDirection}...`
+            textOutputArray.push(`You move ${moveDirection}...`);
+
             const newPlayerPosition = [
                 playerPosition[0] + amount[0],
                 playerPosition[1] + amount[1]
@@ -239,8 +300,27 @@ document.addEventListener("DOMContentLoaded", function() {
         
     }
 
-    function PreCheckForWall(posX, posY)
+    function PreCheckForWalls(posX, posY)
     {
+        if(posX >= 0 && posX < rowSize &&
+            posY >= 0 && posY < rowSize)
+        {
+            moveIsValid = true; 
+            return true;
+        }
+        else
+        {
+            moveIsValid = false;
+            obstacle = "wall"
+            //textOutput.textContent = `You hit a ${obstacle}!`
+            return false;
+          
+        }
+    }
+
+    function CheckForWalls(newX, newY)
+    {
+
         if(newX >= 0 && newX < rowSize &&
             newY >= 0 && newY < rowSize)
         {
@@ -250,9 +330,84 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             moveIsValid = false;
             obstacle = "wall"
-            textOutput.textContent = `You hit a ${obstacle}!`
+            //textOutput.textContent = `A ${obstacle} blocks your path!`
           
         }
+
+      
+    }
+
+    function CheckDistantEnemies(posX, posY)
+    {
+        const detectionRange = 3;
+        let positionsInRange = [
+             
+            
+        ];
+
+        //console.log("Player Pos: " + posX, posY);
+
+        for (let dx = -2; dx <= 2; dx++) {
+            for (let dy = -2; dy <= 2; dy++) {
+                positionsInRange.push([posX + dx, posY + dy]);
+            }
+        }
+
+        //console.log(positionsInRange);
+
+        let enemiesLurkingNearby = false;
+
+        for(let i = 0; i < positionsInRange.length; i++)
+        {
+
+            //console.log(positionsInRange[i][0], positionsInRange[i][1]);
+
+            if (PreCheckForEnemies(positionsInRange[i][0], positionsInRange[i][1])) {
+                enemiesLurkingNearby = true;
+            }
+        }
+
+        //console.log("Enemies Nearby: " + enemiesLurkingNearby);
+
+        return enemiesLurkingNearby;
+
+    }
+
+    function PreCheckForEnemies(posX, posY)
+    {
+        for(let i = 0; i <tempEnemyPositions.length; i++)
+        {
+            if(posX === tempEnemyPositions[i][0] && posY === tempEnemyPositions[i][1])
+            {
+                return true;
+
+    
+                
+            }
+        }
+
+        return false;
+    }
+
+   
+
+    function CheckForEnemies(newX, newY)
+    {
+
+       
+        for(let i = 0; i <tempEnemyPositions.length; i++)
+        {
+            if(newX === tempEnemyPositions[i][0] && newY === tempEnemyPositions[i][1])
+            {
+                moveIsValid = false;
+                obstacle = enemiesInDungeon[i][0];
+                //textOutput.textContent = `A ${obstacle} blocks your path!`
+
+    
+                
+            }
+        }
+        
     }
 
     function CheckForDoor(posX, posY)
@@ -376,7 +531,7 @@ document.addEventListener("DOMContentLoaded", function() {
         SetEnemyStartPositions();
         GetDoors(dungeonData, roomIndex);
         RenderDungeon();
-        textOutput.textContent = `You enter dungeon ${roomIndex}...`;
+        //textContent = `You enter dungeon ${roomIndex}...`;
   
     }
 
@@ -427,34 +582,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function AddIDToEnemies()
-    {
-        for(let i = 0; i < enemiesInDungeon.length; i++)
-        {
-            enemiesInDungeon[i][2] = i;
-        }
-    }
-
-    function CreateObjectsForEnemies()
-    {
-        enemyObjectsInDungeon  = [];
-
-        for(let i = 0; i < enemiesInDungeon.length; i++)
-        {
-            let randomEnemyX = GenerateRandomPosition();
-            let randomEnemyY = GenerateRandomPosition();
-
-            while(randomEnemyX === playerPosition[0] && randomEnemyY === playerPosition[1])
-            {
-                randomEnemyX = GenerateRandomPosition();
-                randomEnemyY = GenerateRandomPosition();
-            }
-
-            const newEnemyCell = new DungeonCell([randomEnemyX,randomEnemyY], enemiesInDungeon[i][0], enemiesInDungeon[i][1], enemiesInDungeon[i][2]);
-            enemyObjectsInDungeon.push(newEnemyCell);
-            
-        }
-    }
+   
     function GenerateRandomPosition()
     {
         return  Math.floor( Math.random() * (rowSize));
@@ -621,43 +749,7 @@ document.addEventListener("DOMContentLoaded", function() {
        
     }
 
-    function CheckForWalls(newX, newY)
-    {
-
-        if(newX >= 0 && newX < rowSize &&
-            newY >= 0 && newY < rowSize)
-        {
-            moveIsValid = true; 
-        }
-        else
-        {
-            moveIsValid = false;
-            obstacle = "wall"
-            textOutput.textContent = `You hit a ${obstacle}!`
-          
-        }
-
-      
-    }
-
-    function CheckForEnemies(newX, newY)
-    {
-
-       
-        for(let i = 0; i <tempEnemyPositions.length; i++)
-        {
-            if(newX === tempEnemyPositions[i][0] && newY === tempEnemyPositions[i][1])
-            {
-                moveIsValid = false;
-                obstacle = enemiesInDungeon[i][0];
-                textOutput.textContent = `A ${obstacle} blocks your path!`
-
     
-                
-            }
-        }
-        
-    }
 
     function StartEnemyLoop() {
         if (enemyLoopInterval !== null) {
