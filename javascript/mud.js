@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function Attack()
     {
         ClearPreviousText();
+        textOutputArray.push("You swing your blade!");
 
         const [px, py] = playerPosition;
 
@@ -122,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const enemyY = Number(tempEnemyPositions[i][1]);
 
                 if (x === enemyX  && y === enemyY ) {
-
+                    textOutputArray.push("You kill the enemy!");
                     tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
                 
 
@@ -132,11 +133,14 @@ document.addEventListener("DOMContentLoaded", function() {
            
         }
 
-     
+        
 
-        MoveEnemies();
+     
+        
         ClearCells();
         RenderDungeon();
+        DescribeCurrentPosition();
+        
     
     
 
@@ -195,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function DescribeCurrentPosition()
     {
-        textOuputArray = [];
+       
 
  
 
@@ -204,15 +208,15 @@ document.addEventListener("DOMContentLoaded", function() {
         let freeEast = PreCheckForWalls(playerPosition[0], playerPosition[1]-1);
         let freeWest = PreCheckForWalls(playerPosition[0], playerPosition[1]+1);
 
-        //freeNorth = PreCheckForEnemies(playerPosition[0]-1, playerPosition[1]);
-        //freeSouth = PreCheckForEnemies(playerPosition[0]+1, playerPosition[1]);
-        //freeEast = PreCheckForEnemies(playerPosition[0], playerPosition[1]-1);
-        //freeWest = PreCheckForEnemies(playerPosition[0], playerPosition[1]+1);
+        let enemyNorth = [PreCheckForEnemies(playerPosition[0]-1, playerPosition[1])[0], PreCheckForEnemies(playerPosition[0]-1, playerPosition[1])[1]];
+        let enemySouth = [PreCheckForEnemies(playerPosition[0]+1, playerPosition[1])[0], PreCheckForEnemies(playerPosition[0]+1, playerPosition[1])[1]];
+        let enemyEast = [PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[1]];
+        let enemyWest = [PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[1]];
 
-        console.log("North: " + freeNorth);
-        console.log("South: " + freeSouth);
-        console.log("East: " + freeEast);
-        console.log("West: " + freeWest);
+        console.log("North: " + enemyNorth);
+        console.log("South: " + enemySouth);
+        console.log("East: " + enemyEast);
+        console.log("West: " + enemyWest);
 
 
         if (!freeNorth) {
@@ -230,11 +234,24 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!freeWest) {
             textOutputArray.push("West is blocked.");
         }
-        
+
         if(CheckDistantEnemies(playerPosition[0], playerPosition[1]))
         {
             textOutputArray.push("Something lurks nearby.")
         }
+        
+        if(enemyNorth[0]) { textOutputArray.push(`A ${enemyNorth[1][0]} blocks your north!`);}
+        if(enemySouth[0]) { textOutputArray.push(`A ${enemySouth[1][0]} blocks your south!`)}
+        if(enemyEast[0]) { textOutputArray.push(`A ${enemyEast[1][0]} blocks your east!`)}
+        if(enemyWest[0]) { textOutputArray.push(`A ${enemyWest[1][0]} blocks your west!`)}
+        
+        
+
+        /*
+        if(CheckImmediateEnemies(playerPosition[0], playerPosition[1]))
+        {
+
+        }*/
 
         for(let i = 0; i < textOutputArray.length; i++)
         {
@@ -379,14 +396,14 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             if(posX === tempEnemyPositions[i][0] && posY === tempEnemyPositions[i][1])
             {
-                return true;
+                return [true, enemiesInDungeon[i]];
 
     
                 
             }
         }
 
-        return false;
+        return [false, null];
     }
 
    
