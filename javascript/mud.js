@@ -376,11 +376,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for(let i = 0; i < positionsInRange.length; i++)
         {
-
-            //console.log(positionsInRange[i][0], positionsInRange[i][1]);
-
-            if (PreCheckForEnemies(positionsInRange[i][0], positionsInRange[i][1])) {
+            const enemyCheck = PreCheckForEnemies(positionsInRange[i][0], positionsInRange[i][1]);
+            if (enemyCheck[0]) {
                 enemiesLurkingNearby = true;
+                break; // Optional: exit early if one enemy is found
             }
         }
 
