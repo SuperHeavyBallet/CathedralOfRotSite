@@ -401,7 +401,7 @@
         "title": "The Rotless City",
         "content": [
            "'The Rotless City. Untouched by Death and equally by Life.'",
-           "The bastion of the Elders in their time. A massive, ornate city built from unknown, impenetrable white rocks, rising high beneath the mountain below a canopy of immortal Lightfungus. It is thought that the light from these gives everlife to the stones of the city.",
+           "The bastion of the Elders in their time. A massive, ornate city built from unknown, impenetrable white rocks, rising high beneath the mountain below a canopy of self-sustaining Lightfungus. It is thought that the light from these gives everlife to the stones of the city.",
            "Overrun now by Rotfungus, yet entirely unconsumed, with neither group willing to concede, held in an unending stasis between decay and magnificence.",
            "Uninhabitable by ordinary creatures due to the Rotfungus presence, but haunted by the empty husks of the Thrallborne guardians, patrolling through the endless twists and turns within the city unwaveringly, without conceivable drive or direction.",
            "The only known path lies through the heart of the Great Chasm — an unnatural descent, followed by a nine-day crawl through a silent tunnel carpeted with the desiccated remains of those who dared to seek the city."
@@ -444,7 +444,7 @@
            "Stoneale - A form of alcoholic drink formed through fermented varieties of mountain fungus, the official breweries are all  located in Word-Keep enclaves, although some unregulated rogue breweries can be found throughout the mountain.",
            "Paledrink - A simple liquid gathered from rock drippings in areas of high condensation. The exact flavour can vary depending on the source, but all are generally very high in mineral content from the rock makeup, with a milky white tint to them."
            ],
-        "credit" : "Markus Brehn – Notes on the Undergroups"
+        "credit" : "Markus Brehn – The Lower Groups"
       },
       {
         "id": "",
@@ -500,6 +500,40 @@
 
         ],
         "credit" : "Unknown"
+      },
+      {
+        "id": "",
+        "category": "Mapping and Clarifications",
+        "title": "The Great Stones",
+        "content": [
+            "The Great Stones act as channels through which the River of Urges can be touched and interacted with, although distilled and reduced from raw form. This makes more uniform urges present in each stone, so that to touch one is to invite a specific urge, rather than to swim in the whole river.",
+            "To expand, a specific urge forms the basis from which thoughts or ideas can blossom. In the original state of the urge within the stones, they are unbound except for the stones holding frame, like a spring in the surface of the ground that only spouts a portion of the whole. To interact with this raw, unfiltered urge is to invite pure thoughts into the mind, which inherently craves structure and definitions, which cannot co-exist with the primal urge or its source. This conflict will produce a conflict within the mind of the beholder, whose internal structures will attempt to wrestle and define that indefinable concept, eventually leading to a tearing at the seams of mental stasis in observation of the indescribable.",
+            "This decline is called ‘The Hollow Bleed’, which spells eventual descent into mental instability and likely physical breakdown as the mental powers draw more and more resources to try and contend with this foreign presence. In addition, as the mental stability of the vessel devolves, their mind attempts to reason and harmonise with that primal urge. This leads to uttering of the Urge in indecipherable tongues, both spoken and written, which in themselves hold no meaning to others, but possess the ability to trigger a secondary cascade. As almost inevitably, some element within that transferred message finds a root within the mind of the subsequent beholder, leading to eventual infestation of all who continue the chain of decay.",
+            "Some, however, are immune to The Hollow Bleed. Primarily those without capacity for thought or the holding of ideas or urges. These include lower creatures, as well as Dorfs and the mysterious Unthinker figure who is able to exist without physical or mental degradation within the Under Chambers, where the Great Stones reside. There are also the minds of the Blind Goblins, who through primal logic, integrated with the unexpected gain of higher language, are able to partially Unthink by entering dream like states where they willingly forgo the learnt structure of language, reverting to a lesser, more primal consciousness like the lower creatures. Additionally, the Skrivern are able to replicate this same process, but less gracefully, without the assistance of mediation or Dreamfungus. Instead, the Skrivern deliberately suppress their own structured thoughts, a process almost impossible to fathom and inherently very scarring to the psyche of these creatures.",
+            "The Great Stones and The Under Chambers are guarded by Mindthieves, put into place by the Skrivern and Blind Goblins many years ago, in response to the decay of The Elders in communion with the Great Stones. The Mindthieves act as predators which patrol the areas beneath the mountain, observing and praying on any intruders with a capacity for thoughts or ideas, reducing them to mental husks, incapable of contact with or channeling of the Primal Urges through the Great Stones.",
+            "The Unthinker is a figure with a power that is quite literally unfathomable. It is unknown from where he originated, or even what race of creature he is. It is only known that he at some point, or perhaps always, possessed a mind of neither willful nor unwillful Unthinking. He rejects any level of mental clarity or attempt at dominion over the primal urges. As such, his mind is so obscenely open that it is freely able to commune with and channel the primal urges, often being referred to as ‘He Who Swims Blindly’. As a result of his complete submission to the Primal Urges, he is unable to communicate with any other groups, except for them to observe and attempt to describe and deduce from his actions.",
+            "Stemming from his unthinking and submission to the Urges, he is also immune to the Mindthieves, as he possesses no mind of his own to hold thoughts, only to let the river flow through. And in contrast to all others, he is a hunter of the Mindthieves, seeking to release those thoughts they have stolen to their rightful resting place; the River."
+
+
+        ],
+        "credit" : "Markus Brehn - Notes from The Under Chambers"
+      },
+      {
+        "id": "",
+        "category": "Tales & Found Words",
+        "title": "He Who Swims Blind With Mouth Agape",
+        "content": [
+            "A creature.",
+            "Beneath the mountain, above the river.",
+            "He swims through it, and it through him.",
+            "Chaos, to harmony. Harmony, to chaos.",
+            "Ideas take him and he takes them.",
+            "Stones crawl through his tongue.",
+            "In his words, your mind shall feast.",
+            "Gorge. Decay."
+
+        ],
+        "credit" : "Dakh-Khan, The First Speaker of the Blind Goblins on The Unthinker"
       }
     
 ]

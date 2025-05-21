@@ -210,8 +210,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let enemyNorth = [PreCheckForEnemies(playerPosition[0]-1, playerPosition[1])[0], PreCheckForEnemies(playerPosition[0]-1, playerPosition[1])[1]];
         let enemySouth = [PreCheckForEnemies(playerPosition[0]+1, playerPosition[1])[0], PreCheckForEnemies(playerPosition[0]+1, playerPosition[1])[1]];
-        let enemyEast = [PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[1]];
-        let enemyWest = [PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[1]];
+        let enemyWest = [PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[1]];
+        let enemyEast = [PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[1]];
 
         console.log("North: " + enemyNorth);
         console.log("South: " + enemySouth);

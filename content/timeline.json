@@ -1,16 +1,30 @@
 [
     {
         "id" : "",
-        "eventTitle" : "The Elder Binding",
-        "eventDate" : "-2056",
-        "eventText" : "The Elders become bound to the Thrallborne Vessels"
+        "eventTitle" : "The Elder Urge Communion",
+        "eventDate" : "-2060",
+        "eventText" : "The Elders make contact and freely imbibe the urge through the Great Stones"
 
     },
     {
         "id" : "",
         "eventTitle" : "The Rotless City is Consumed",
-        "eventDate" : "-2055",
-        "eventText" : "The Rotless City is consumed by Rotfungus, but not destroyed"
+        "eventDate" : "-2045",
+        "eventText" : "The Elder Citadel is consumed by Rotfungus in their absence, but not destroyed"
+
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Hollow Bleed",
+        "eventDate" : "-2050",
+        "eventText" : "The Elder minds begin to decay in conflict with the Primal Urges"
+
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Thrallborne Binding",
+        "eventDate" : "-2049",
+        "eventText" : "As defence against annihalation, the Elder minds are sealed within the Thrallborne husks"
 
     },
     {
@@ -53,20 +67,50 @@
     },
     {
         "id" : "",
+        "eventTitle" : "The River of Urges Flows",
+        "eventDate" : "-9000",
+        "eventText" : "The river flows beneath the mountain from an unknown time"
+    },
+    {
+        "id" : "",
         "eventTitle" : "The Elder Reign",
         "eventDate" : "-6000",
         "eventText" : "The Elder race reign continues from an unknown age"
     },
     {
         "id" : "",
-        "eventTitle" : "The Dwarvs Claim The Mountain",
+        "eventTitle" : "The Dwargs Claim The Mountain",
         "eventDate" : "-1100",
-        "eventText" : "Dwarvs Spread into further cave networks, claiming command"
+        "eventText" : "Dwargs Spread into further cave networks, claiming command"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Dwargs Divide",
+        "eventDate" : "-1100",
+        "eventText" : "Dwargs Split in internal conflict, birthing the Dwarvs and Dwarfs, while true Dwargs of non devision dwindle, retreating to the high chambers"
     },
     {
         "id" : "",
         "eventTitle" : "The Great Stones Rise",
         "eventDate" : "-2090",
-        "eventText" : "In the Under Chambers, the Great Stones emerge."
+        "eventText" : "In the Under Chambers, the Great Stones emerge, chanelling The River of Urges"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Dwarvs Gain Wisdom",
+        "eventDate" : "01",
+        "eventText" : "The Skarn make contact with the fledgling Dwarv race and bring new structures of thought, giving power over the Dwarfs"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Former Dwargs Isolate to The Word Keep",
+        "eventDate" : "02",
+        "eventText" : "The Former Dwargs retreat entirely, confining themselves to the halls in the higher reaches, wary of free thoughts, reidentifying as Word Keeps"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Dwarv Empire Rises",
+        "eventDate" : "320",
+        "eventText" : "The previously hidden Dwarg Empire moves out from the shadows and subjugates all mid level groups"
     }
 ]

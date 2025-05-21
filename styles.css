@@ -498,9 +498,15 @@ html.light-theme .list-title:hover{
 }
 .event-card{
     border: 1px solid var(--dark-border-color);
+    border-top: 5px solid var(--dark-border-color);
     padding: 1rem;
     margin: 1rem;
     
+}
+
+.event-card:hover{
+    background-color: var(--dark-text-color);
+    color: var(--light-text-color);
 }
 .html.light-theme .event-card{
     border: 1px solid var(--light-border-color);
