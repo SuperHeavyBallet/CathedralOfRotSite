@@ -72,10 +72,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let doorCoordinates = [];
 
     let roomIndex = 0;
+    let numberOfDeadEnemies = 0;
+    let allEnemiesDead = false;
 
     let allDungeonCells = [];
 
     let textOutputArray = [];
+
+    let allDungeonCellElements = [];
 
     const attackButton = document.getElementById("attackButton");
 
@@ -125,7 +129,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (x === enemyX  && y === enemyY ) {
                     textOutputArray.push("You kill the enemy!");
                     tempEnemyPositions[i] = [-1, -1]; // mark enemy as dead
-                
+                    numberOfDeadEnemies ++;
+                    
 
                     break;
                 }
@@ -148,9 +153,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function ClearPreviousText()
     {
-        //console.log("Called Clear Previous Text");
-
-        //console.log("Child count before clear:", textOutput.childNodes.length);
 
 
         while (textOutput.lastChild) {
@@ -200,8 +202,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function DescribeCurrentPosition()
     {
        
-
- 
+        CheckRemainingEnemies();
+      
 
         let freeNorth = PreCheckForWalls(playerPosition[0]-1, playerPosition[1]);
         let freeSouth = PreCheckForWalls(playerPosition[0]+1, playerPosition[1]);
@@ -213,10 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let enemyWest = [PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]-1)[1]];
         let enemyEast = [PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[0], PreCheckForEnemies(playerPosition[0], playerPosition[1]+1)[1]];
 
-        console.log("North: " + enemyNorth);
-        console.log("South: " + enemySouth);
-        console.log("East: " + enemyEast);
-        console.log("West: " + enemyWest);
+
 
 
         if (!freeNorth) {
@@ -247,11 +246,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
 
-        /*
-        if(CheckImmediateEnemies(playerPosition[0], playerPosition[1]))
+        if(allEnemiesDead)
         {
-
-        }*/
+            textOutputArray.push("You're all alone...");
+        }
 
         for(let i = 0; i < textOutputArray.length; i++)
         {
@@ -276,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(moveIsValid)
         {
-            //console.log("To move: " + amount);
+
             let moveDirection = ""
            
             if(amount[0] === 1 && amount[1] === 0)
@@ -328,8 +326,6 @@ document.addEventListener("DOMContentLoaded", function() {
         else
         {
             moveIsValid = false;
-            obstacle = "wall"
-            //textOutput.textContent = `You hit a ${obstacle}!`
             return false;
           
         }
@@ -346,8 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         else
         {
             moveIsValid = false;
-            obstacle = "wall"
-            //textOutput.textContent = `A ${obstacle} blocks your path!`
+    
           
         }
 
@@ -356,21 +351,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function CheckDistantEnemies(posX, posY)
     {
-        const detectionRange = 3;
+
         let positionsInRange = [
              
             
         ];
 
-        //console.log("Player Pos: " + posX, posY);
 
         for (let dx = -2; dx <= 2; dx++) {
             for (let dy = -2; dy <= 2; dy++) {
                 positionsInRange.push([posX + dx, posY + dy]);
             }
         }
-
-        //console.log(positionsInRange);
 
         let enemiesLurkingNearby = false;
 
@@ -379,11 +371,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const enemyCheck = PreCheckForEnemies(positionsInRange[i][0], positionsInRange[i][1]);
             if (enemyCheck[0]) {
                 enemiesLurkingNearby = true;
-                break; // Optional: exit early if one enemy is found
+               
             }
         }
-
-        //console.log("Enemies Nearby: " + enemiesLurkingNearby);
 
         return enemiesLurkingNearby;
 
@@ -393,13 +383,21 @@ document.addEventListener("DOMContentLoaded", function() {
     {
         for(let i = 0; i <tempEnemyPositions.length; i++)
         {
+            const enemyName = enemiesInDungeon[i][0];
+
             if(posX === tempEnemyPositions[i][0] && posY === tempEnemyPositions[i][1])
             {
+                
+                
+    //To fix
+                //allDungeonCellElements[posX][posY].textContent = enemyName[0];
+
                 return [true, enemiesInDungeon[i]];
 
     
                 
             }
+            
         }
 
         return [false, null];
@@ -417,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function() {
             {
                 moveIsValid = false;
                 obstacle = enemiesInDungeon[i][0];
-                //textOutput.textContent = `A ${obstacle} blocks your path!`
+          
 
     
                 
@@ -539,7 +537,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function BuildDungeon(roomIndex)
     {
         ClearCells();
-
+        ClearPreviousText();
+        numberOfDeadEnemies = 0;
+        allEnemiesDead = false;
         randomDoorCellTop = GenerateRandomPosition();
         randomDoorCellBottom = GenerateRandomPosition();
 
@@ -547,8 +547,23 @@ document.addEventListener("DOMContentLoaded", function() {
         SetEnemyStartPositions();
         GetDoors(dungeonData, roomIndex);
         RenderDungeon();
-        //textContent = `You enter dungeon ${roomIndex}...`;
+        textOutputArray = [`You enter Dungeon ${roomIndex}...`];
+        DescribeCurrentPosition();
+    
   
+    }
+
+    function CheckRemainingEnemies()
+    {
+        if(numberOfDeadEnemies === tempEnemyPositions.length)
+        {
+            allEnemiesDead = true;
+        }
+
+
+        
+
+     
     }
 
 
@@ -610,6 +625,7 @@ document.addEventListener("DOMContentLoaded", function() {
     {
         let idIndex = 0;
         dungeonCellsWithContents = [];
+        allDungeonCellElements = [];
         doorPositions = []
   
         let rowNeedsDoor;
@@ -637,11 +653,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         
-        //console.log(doorPositions);
+  
 
         for(let row = 0; row < rowSize; row++)
         {
             rowNeedsDoor = false;
+            allDungeonCellElements.push([]);
 
             for(let i = 0; i < doorPositions.length; i++)
             {
@@ -669,14 +686,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 allDungeonCells[row][cell].id = idIndex;
 
-                //console.log(playerPosition);
-
-                
+         
 
                 if(rowNeedsDoor && cell === randomDoorCellTop)
                 {
 
-                   // console.log("Cell: " + cell + " should be a door");
+          
 
                     allDungeonCells[row][cell].contents = "Door";
                     allDungeonCells[row][cell].quantity = 10;
@@ -735,11 +750,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                     
                 }
+                allDungeonCellElements[row].push(cellElement);
+
 
                 dungeonMap.appendChild(cellElement);
                 idIndex ++;
      
             }
+           
                 
         } 
     }
@@ -752,14 +770,7 @@ document.addEventListener("DOMContentLoaded", function() {
             dungeonMap.removeChild(dungeonMap.lastChild);
         }
 
-        /*
-        const previousPositionCell = document.getElementById("map-cell-current");
 
-        if (previousPositionCell) {
-            previousPositionCell.removeAttribute("id");
-            previousPositionCell.classList.remove("map-cell-current");
-            previousPositionCell.textContent = " ";
-        }*/
   
         
        
@@ -776,7 +787,7 @@ document.addEventListener("DOMContentLoaded", function() {
         enemyNormalSpeedLoopInterval = setInterval(() => {
             
             ResetCanMove(normalSpeedCanMove);
-            //MoveEnemies();
+
             normalSpeedCanMove = false;
 
         }, normalMovementDelay);

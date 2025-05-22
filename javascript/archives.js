@@ -39,28 +39,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     
-    function AddClickEventstoArrayElements(array, eventType)
-    {
-        array.forEach(element =>
-            {
-                element.addEventListener(eventType, (e) =>{
-                    e.preventDefault();
-                    const list = element.nextElementSibling;
-
-                    if (!list) return;
-
-
-                    list.classList.toggle("hidden");
-
-                    const arrowSpan = element.querySelector(".arrow");
-                    if (!arrowSpan) return;
-
-                    const isHidden = list.classList.contains("hidden");
-                    arrowSpan.textContent = isHidden ? "⯇ " : "▼ ";
-                })
-            })
-
+    function AddClickEventstoArrayElements(array, eventType) {
+        array.forEach(element => {
+            element.addEventListener(eventType, (e) => {
+                e.preventDefault();
+    
+                const currentList = element.nextElementSibling;
+                if (!currentList) return;
+    
+                // Hide all other sibling elements
+                array.forEach(otherElement => {
+                    const otherList = otherElement.nextElementSibling;
+                    const otherArrow = otherElement.querySelector(".arrow");
+    
+                    if (!otherList) return;
+    
+                    if (otherElement !== element) {
+                        otherList.classList.add("hidden");
+                        
+                        if (otherArrow) otherArrow.textContent = "⯇ ";
+                    }
+                });
+    
+                // Toggle visibility for the clicked element
+                const isHidden = currentList.classList.contains("hidden");
+                currentList.classList.toggle("hidden");
+    
+                const arrowSpan = element.querySelector(".arrow");
+                if (arrowSpan) {
+                    arrowSpan.textContent = isHidden ? "▼ " : "⯇ ";
+                }
+            });
+        });
     }
+    
 
    
 
@@ -128,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function FillArticle(article)
     {
+       
+
         archiveTitle.textContent = article.title;
         archiveCategory.textContent = article.category;
 
@@ -135,11 +149,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let content = article.content;
 
         content.forEach(line =>
-            {
+        {
                 let newLine = document.createElement("p");
                 newLine.textContent = line.toString();
                 archiveTextArea.appendChild(newLine);
-            })
+        })
 
             archiveCredit.textContent = "~ " + article.credit;
 
@@ -152,9 +166,20 @@ document.addEventListener("DOMContentLoaded", function() {
         listElement.addEventListener('click', (e) => {
             e.preventDefault();
 
+
             FillArticle(article);
-       
+
+            const articleBody = document.getElementById("archiveTitle");
+
+            articleBody.scrollIntoView({behavior: "smooth"});
+
+            
+
+            
+            
         })
+        
+
     }
 
 });

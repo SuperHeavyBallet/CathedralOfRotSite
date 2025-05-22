@@ -112,5 +112,11 @@
         "eventTitle" : "The Dwarv Empire Rises",
         "eventDate" : "320",
         "eventText" : "The previously hidden Dwarg Empire moves out from the shadows and subjugates all mid level groups"
+    },
+    {
+        "id" : "",
+        "eventTitle" : "The Final Word",
+        "eventDate" : "9999",
+        "eventText" : "The final collection of all possible knowledge within the universe, thus ending it"
     }
 ]
