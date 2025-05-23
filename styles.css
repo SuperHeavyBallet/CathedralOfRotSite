@@ -293,7 +293,7 @@ html.light-theme  .support-section{
 }
 
 .archive-title{
-    font-size: large;
+    font-size: x-large;
 }
 
 .archive-credit{
@@ -367,6 +367,29 @@ html.light-theme .right-area{
 
 
 }
+
+.text-area h4{
+    margin-bottom: 2rem;
+    font-size: x-large;
+}
+
+.text-area h5{
+    margin-bottom: 1rem;
+    font-size: large;
+    text-align: start;
+}
+
+.text-area ul{
+    text-align: start;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    
+}
+.text-area li{
+    
+    list-style: circle;
+}
+
 
 .index-banner{
     border: 1px solid var(--dark-border-color);
