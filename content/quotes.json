@@ -13,7 +13,7 @@
     },
     {
         "id" : "4",
-        "quote" : "If I breathe, then I shall die."
+        "quote" : "If I breathe, then I shall die. If I hear?"
     },
     {
         "id" : "5",
@@ -54,5 +54,19 @@
     {
         "id" : "14",
         "quote" : "I jump from the peak so that I may find my roots."
+    },
+    {
+        "id" : "15",
+        "quote" : "Speak the rot. Make them hear the decay."
+    },
+    {
+        "id" : "16",
+        "quote" : "The Final Word is spoken, but who listens?"
+    },
+    {
+        "id" : "17",
+        "quote" : "The Unthinker is not mad. He is hollowed clean."
     }
+
+
 ]

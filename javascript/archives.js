@@ -138,27 +138,29 @@ document.addEventListener("DOMContentLoaded", function() {
      
     }
 
-    function FillArticle(article)
-    {
-       
+    function FillArticle(article) {
 
         archiveTitle.textContent = article.title;
         archiveCategory.textContent = article.category;
-
-        archiveTextArea.textContent = "";
+    
+        archiveTextArea.textContent = ""; // Clear existing content
         let content = article.content;
-
-        content.forEach(line =>
-        {
-                let newLine = document.createElement("p");
-                newLine.textContent = line.toString();
-                archiveTextArea.appendChild(newLine);
-        })
-
-            archiveCredit.textContent = "~ " + article.credit;
-
-            
-   
+    
+        content.forEach(line => {
+            let newLine = document.createElement("p");
+    
+            // If the line includes a manual line break, convert to <br>
+            if (line.includes("\n")) {
+                // Replace \n with <br> and set using innerHTML
+                newLine.innerHTML = line.replace(/\n/g, "<br>");
+            } else {
+                newLine.textContent = line;
+            }
+    
+            archiveTextArea.appendChild(newLine);
+        });
+    
+        archiveCredit.textContent = "~ " + article.credit;
     }
 
     function AddListClickEvent(listElement, article)
@@ -169,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             FillArticle(article);
 
-            const articleBody = document.getElementById("archiveTitle");
+            const articleBody = document.getElementById("right-area");
 
             articleBody.scrollIntoView({behavior: "smooth"});
 

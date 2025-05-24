@@ -523,7 +523,7 @@
         "category": "Tales & Found Words",
         "title": "He Who Swims Blind With Mouth Agape",
         "content": [
-            "A creature.",
+            "Creature.",
             "Beneath the mountain, above the river.",
             "He swims through it, and it through him.",
             "Chaos, to harmony. Harmony, to chaos.",
@@ -534,6 +534,40 @@
 
         ],
         "credit" : "Dakh-Khan, The First Speaker of the Blind Goblins on The Unthinker"
+      },
+      {
+        "id": "",
+        "category": "Mapping and Clarifications",
+        "title": "Those Borne to Decay",
+        "content": [
+            "An Observer’s Account of the Rotborne Phenomenon",
+            "Through the gleaming ruins of the Rotless City, eternal husks roam. These are the Thrallborne - stone bodied empty vessels in wait of command, crafted by the Elder to serve as undying, untiring mindless guardians, impervious to rot, time and corruption.",
+            "Now though, those guardians act as tombs to preserve the minds of the fallen Elder race, as a last effort to withstand the mind decay brought about by the first Hollow Bleed.",
+            "The few Elder minds capable of entering the Untiming were the priests. They took it upon themselves to seal away the lesser Elder minds for preservation, knowing that within that protection, any possibility of escape or influence into the outer realms would be impossible.",
+            "But the priests themselves refused confinement, unwilling to cage their vast intellects. Instead, they fled to exist in the shadows of the Untiming, abandoning their physical bodies to the rot and decay of reality. They remain there still, hidden but intact in the most remote corners of the Untiming realm, hiding from those who still hunt them.",
+            "Until recently, the Thrallborne have peacefully prowled amongst their old grounds, as though trapped in faint memories of purpose, but without a light to guide them through the dark.",
+            "When I communed with the Great Stone, a second Hollow Bleed began, mirroring the initial events that destroyed the Elders.",
+            "While the Blind Goblins were able to seal and delay an outbreak of mind decay, the Skeevers took action. The Skeevers, like the Blind Goblins, had watched the collapse of the Elders from the shadows. In response, they had already built defenses through the underchambers, in the form of the Mindthieves to prevent further contact with the stones.",
+            "But as I had managed to bypass these and initiate a second outbreak of mind decay — even if aborted — the Skeevers renewed their efforts to eliminate any potential threats.",
+            "They rushed through the outskirts of Rotless City, capturing exposed Thrallborne and dragging them back for their own rituals. There, through rituals traversing the physical and the Untiming realms, the trapped minds of the Elders were uprooted and torn from the Thrallborne vessels, thrown in fractured forms into the Untiming. Only a hollow core remained within the Thrallborne, with the stem-consciousness waiting in anticipation of an influence.",
+            "Into that void, Skeever shamans whispered the Urge of Decay - an influence pulled from one of the Great Stones, rooted in entropy, collapse and hunger. The result of this dark mixing of urges and vessels was a new, monstrous creature:",
+            "The Rotborne.",
+            "The Rotborne are relentless, semi-sentient hunters. What previously sat as passive, waiting tombs in hope of repair, now stalk the tunnels and caves, motivated by the primal urge to unmake. They do not think, only pursue instinctual drives. They do not speak through words, only through ruin. They are compelled towards the destruction of other urges, targeting the Hollow Bleeders above all else.",
+            "However, their sense of influence is non-discriminatory. They cannot distinguish between one urge or another. As such, the Rotborne seem often to hunt their own fellow Rotborne, with one urge of decay attempting to unmake another of its own nature. Resulting in the pair—or more—becoming trapped in an unending battle, each driven solely by the desire to unmake any bearer of influence—even each other.",
+            "Given that the Rotborne are each touched by the same urge they serve, they are able to traverse through both the physical and temporal realms, slipping through the Untiming at will, making them dangerous hunters in all regards, able to stalk their prey through space and fractured time. ",
+            "They are unthinking, yet monolithically driven—locked in the endless pursuit of the primal urges. They cannot plan ahead to create traps or ambushes, but they will not let the prey rest for long.",
+            "Wherever they pass through the Untiming, they taint the timeline - and wherever they manifest, Rotfungus erupts to herald them.",
+            "These fungal blooms appear spontaneously, without a clear path of physical continuity. Only those few minds versed in temporal mapping are able to trace the passage of the Rotborne.",
+            "The Rotborne retain the architecture of the Thrallborne, but theirs is violated and decayed.",
+            "Their crowned, turreted helms are fractured, split to expose a cavern within which Rotfungus blooms freely.",
+            "Those once gleaming, pristine limbs are cracked, eaten away and overrun with reddish scale, fleshy tissue and islands of spore pustules.",
+            "The Twin Golems",
+            "Among the few remaining works of those who crafted the untainted Thrallborne, are believed to be the Twin Golems which stand guard in the entrance hall. It is thought that these behemoths once served as sentinels, but were left unminded during the great exodus, left to remain as unrotting, yet weathered relics of a time long since forgotten.",
+            "Though they stand dormant, it is believed that as before, a mind may enter once again into the empty Golem, if passage were made through the Untiming. But, to do so would invariably trap the mind of the passenger while seated, exposing their physical body to attack from any hunters, dooming them to permanent entrapment within the Golem, or worse–uprooted and destroyed by Skeever Mind-Hunters.",
+            "“To seat oneself within the Thrallborne is to forsake the world.\nTo seat oneself within the Rotborne is to forsake the self entirely—and rather enthusiastically at that.”"
+
+        ],
+        "credit" : "Markus Brehn - Notes from The Under Chambers"
       }
     
 ]
