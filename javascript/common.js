@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function FetchQuotesContent()
     {
-        fetch("/content/quotes.json")
+        fetch("content/quotes.json")
         .then(response => response.json())
         .then(data => {
             quotesData = data;
