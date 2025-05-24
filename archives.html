@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archives</title>
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/javascript/common.js"></script>
-    <script src="/javascript/archives.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript/common.js"></script>
+    <script src="javascript/archives.js"></script>
     <script>
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "light") {
             document.documentElement.classList.add("light-theme");
         }
     </script>
-    <script src="/javascript/colorTheme.js"></script>
+    <script src="javascript/colorTheme.js"></script>
 </head>
 <body>
 
@@ -29,11 +29,11 @@
         </h3>
 
         <div class="horizontal-list">
-            <a href="/pages/archives.html" class="page-link disabled-link" id="archives-page-link" aria-current="page">Archives</a>
-            <a href="/pages/timeline.html" class="page-link" id="timeline-page-link">Timeline</a>
-            <a href="/pages/mud.html" class="page-link" id="mud-page-link">MUD</a>
-            <a href="/pages/about.html" class="page-link" id="about-page-link">About</a>
-            <a href="/pages/support.html" class="page-link" id="support-page-link">Support</a>
+            <a href="archives.html" class="page-link disabled-link" id="archives-page-link" aria-current="page">Archives</a>
+            <a href="timeline.html" class="page-link" id="timeline-page-link">Timeline</a>
+            <a href="mud.html" class="page-link" id="mud-page-link">MUD</a>
+            <a href="about.html" class="page-link" id="about-page-link">About</a>
+            <a href="support.html" class="page-link" id="support-page-link">Support</a>
             <button class="toggle-color-theme" id="toggle-color-theme">☀</button>
         </div>
 
@@ -95,10 +95,11 @@
 
         </div>
         
+        <footer>
+            <p>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.</p>
+            <p class="copyright-text" id="copyright-text" data-author="Alexander Gorham">Copyright ©. All content and associated intellectual property are protected.</p>
+        </footer>
 
 </body>
-<footer>
-    <p>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.</p>
-    <p class="copyright-text" id="copyright-text" data-author="Alexander Gorham">Copyright ©. All content and associated intellectual property are protected.</p>
-</footer>
+
 </html>
