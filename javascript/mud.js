@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function GetDungeon()
     {
-        fetch("content/dungeon.json")
+        fetch("./content/dungeon.json")
         .then(response => response.json())
         .then(data => {
             dungeonData = data;

@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function FetchArchivesContent()
     {
-        fetch('content/archives.json')
+        fetch('./content/archives.json')
         .then(response => response.json())
         .then(data => {
             archivesData = data;

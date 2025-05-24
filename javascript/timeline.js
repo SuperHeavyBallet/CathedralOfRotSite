@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function FetchTimelineContent()
     {
-        fetch('content/timeline.json')
+        fetch('./content/timeline.json')
         .then(response => response.json())
         .then(data => {
             eventData = data;
