@@ -568,6 +568,32 @@
 
         ],
         "credit" : "Markus Brehn - Notes from The Under Chambers"
+      },
+      {
+        "id": "",
+        "category": "In Game Items",
+        "title": "Sketh Dagger",
+        "content": [
+          "Name: Sketh Dagger",
+          "Weight: Light",
+          "Type: Dagger",
+          "A keen, light blade forged in the pits of Drakhil. Hewn to a finery fit to carve through shadows.",
+          "'The Gurgles of torn throats speak louder than the blades of Sketh.'"
+        ],
+        "credit" : ""
+      },
+      {
+        "id": "",
+        "category": "In Game Items",
+        "title": "Mad Baron’s Cleaver",
+        "content": [
+          "Name: Mad Baron’s Cleaver",
+          "Weight: Heavy",
+          "Type: Greathammer",
+          "A hefty slab of rough steel scraped to a dull edge. Once the tool of Krhaptis, Baron of Drakhil. Used to dispatch those who spoke out.",
+          "'They say the edge was first keen, dulled by Krhaptis to further pain his enemies.'"
+        ],
+        "credit" : ""
       }
     
 ]

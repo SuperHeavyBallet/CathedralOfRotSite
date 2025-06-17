@@ -23,13 +23,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const list_Title_Tales = document.getElementById("list-title-tales");
     const list_Title_Creatues = document.getElementById("list-title-creatures");
     const list_Title_Groups = document.getElementById("list-title-groups");
+    const list_Title_Items = document.getElementById("list-title-items");
 
     const listTitles = [
         list_Title_AcademicWork,
         list_Title_Mapping,
         list_Title_Tales,
         list_Title_Creatues,
-        list_Title_Groups
+        list_Title_Groups,
+        list_Title_Items
     ];
 
 
@@ -95,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             PopulateList(list_Tales, "Tales & Found Words");
             PopulateList(list_Creatures, "Creatures");
             PopulateList(list_Groups, "Groups");
+            PopulateList(list_Items, "In Game Items");
 
             FillArticle(archivesData[0]);
 
