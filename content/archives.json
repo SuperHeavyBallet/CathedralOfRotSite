@@ -594,6 +594,45 @@
           "'They say the edge was first keen, dulled by Krhaptis to further pain his enemies.'"
         ],
         "credit" : ""
+      },
+      {
+        "id": "",
+        "category": "In Game Items",
+        "title": "Drakhil Guard’s Broadsword",
+        "content": [
+          "Name: Drakhil Guard’s Broadsword",
+          "Weight: Medium",
+          "Type: Sword",
+          "An unremarkable, but reliable blade built to defend Drakhil from the creatures beyond.",
+          "'There was nothing to say of these blades, except that they fulfilled their roles without question.'"
+        ],
+        "credit" : ""
+      },
+      {
+        "id": "",
+        "category": "In Game Items",
+        "title": "Towerman’s Strikesword",
+        "content": [
+          "Name: Towerman’s Strikesword",
+          "Weight: Heavy",
+          "Type: Greatsword",
+          "A mighty blade crafted for Towermen. Heavy and without grace. Slow to swing, but sure to damage whatever it falls upon.",
+          "'If the towers fell, something surely would be destroyed. What exactly, is down to fate.'"
+        ],
+        "credit" : ""
+      },
+      {
+        "id": "",
+        "category": "In Game Items",
+        "title": "Woodsman’s Bow",
+        "content": [
+          "Name: Woodsman’s Bow",
+          "Weight: Medium",
+          "Type: Bow",
+          "A reliable bow, designed not for finery or display, only for accuracy and range. Given a full draw, any arrow will strike with harshness.",
+          "'I fear the man hidden in the trees, for he surely knows them better than I, and he wields their crafts.'"
+        ],
+        "credit" : ""
       }
     
 ]
