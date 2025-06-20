@@ -1,47 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Initial Setup
 
-    let archivesData = [];
+    let writingData = [];
     
+    const list_ShortStories = document.getElementById('list_shorts');
+    const list_Items = document.getElementById('list_items');
 
-    const list_AcademicWork = document.getElementById("list_AcademicWork");
-    const list_Mapping = document.getElementById("list_Mapping");
-    const list_Tales = document.getElementById("list_Tales");
-    const list_Creatures = document.getElementById("list_Creatures");
-    const list_Groups = document.getElementById("list_Groups");
-    const list_Items = document.getElementById("list-Items");
+    const writingTitle = document.getElementById("writingTitle");
+    const writingCategory = document.getElementById("writingCategory");
+    const writingTextArea = document.getElementById("writingTextArea");
+    const writingCredit = document.getElementById("writingCredit");
 
-    const archiveTitle = document.getElementById("archiveTitle");
-    const archiveCategory = document.getElementById("archiveCategory");
-    const archiveTextArea = document.getElementById("archiveTextArea");
-    const archiveCredit = document.getElementById("archiveCredit");
+    FetchWritingContent();
 
-    FetchArchivesContent();
-
-    const list_Title_AcademicWork = document.getElementById("list-title-academic");
-    const list_Title_Mapping = document.getElementById("list-title-mapping");
-    const list_Title_Tales = document.getElementById("list-title-tales");
-    const list_Title_Creatues = document.getElementById("list-title-creatures");
-    const list_Title_Groups = document.getElementById("list-title-groups");
+    const list_Title_ShortStories = document.getElementById("list-title-shorts");
     const list_Title_Items = document.getElementById("list-title-items");
 
     const listTitles = [
-        list_Title_AcademicWork,
-        list_Title_Mapping,
-        list_Title_Tales,
-        list_Title_Creatues,
-        list_Title_Groups,
+        list_Title_ShortStories,
         list_Title_Items
     ];
 
-
-
-    
     AddClickEventstoArrayElements(listTitles, "click");
 
-    
-    
     function AddClickEventstoArrayElements(array, eventType) {
         array.forEach(element => {
             element.addEventListener(eventType, (e) => {
@@ -75,32 +56,24 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-    
 
-   
-
-
-    // Functions
-
-    function FetchArchivesContent()
+    function FetchWritingContent()
     {
-        fetch('./content/archives.json')
+        fetch('./content/writing.json')
         .then(response => response.json())
         .then(data => {
-            archivesData = data;
-            console.log(archivesData);
+            writingData = data;
 
-            AssignID(archivesData);
-            console.log(archivesData);
+            AssignID(writingData);
+            console.log(writingData);
 
-            PopulateList(list_AcademicWork, "Academic Work");
-            PopulateList(list_Mapping, "Mapping and Clarifications");
-            PopulateList(list_Tales, "Tales & Found Words");
-            PopulateList(list_Creatures, "Creatures");
-            PopulateList(list_Groups, "Groups");
+            
+            PopulateList(list_ShortStories, "Short Stories");
             PopulateList(list_Items, "In Game Items");
+   
 
-            FillArticle(archivesData[0]);
+            
+            FillArticle(writingData[0]);
 
         });
     }
@@ -118,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
     }
+
 
     function PopulateList(listName, jsonCategory)
     {
@@ -144,10 +118,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function FillArticle(article) {
 
-        archiveTitle.textContent = article.title;
-        archiveCategory.textContent = article.category;
+        writingTitle.textContent = article.title;
+        writingCategory.textContent = article.category;
     
-        archiveTextArea.textContent = ""; // Clear existing content
+        writingTextArea.textContent = ""; // Clear existing content
         let content = article.content;
     
         content.forEach(line => {
@@ -161,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 newLine.textContent = line;
             }
     
-            archiveTextArea.appendChild(newLine);
+            writingTextArea.appendChild(newLine);
         });
     
-        archiveCredit.textContent = "~ " + article.credit;
+        writingCredit.textContent = "~ " + article.credit;
     }
 
     function AddListClickEvent(listElement, article)
@@ -175,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             FillArticle(article);
 
-            const articleBody = document.getElementById("archiveTitle");
+            const articleBody = document.getElementById("writingTitle");
 
             articleBody.scrollIntoView({behavior: "smooth"});
 

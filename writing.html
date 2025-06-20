@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cathedral of Rot</title>
+    <title>Writing</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript/common.js"></script>
-    <script src="javascript/index.js"></script>
+    <script src="javascript/writing.js"></script>
     <script>
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "light") {
@@ -14,9 +14,10 @@
         }
     </script>
     <script src="javascript/colorTheme.js"></script>
-
 </head>
 <body>
+
+
     <h2 class="title">
         Welcome To The Cathedral of Rot
         </h2>
@@ -26,29 +27,57 @@
         <h3 class="sub-title">
             Where Will You Go?
         </h3>
+
         <div class="horizontal-list">
-            <a href="archives.html" class="page-link" id="archives-page-link">Archives</a>
+            <a href="archives.html" class="page-link" id="archives-page-link" >Archives</a>
             <a href="timeline.html" class="page-link" id="timeline-page-link">Timeline</a>
             <a href="mud.html" class="page-link" id="mud-page-link">MUD</a>
-            <a href="writing.html" class="page-link" id="writing-page-link">Writing</a>
+            <a href="writing.html" class="page-link disabled-link" id="writing-page-link" aria-current="page">Writing</a>
             <a href="about.html" class="page-link" id="about-page-link">About</a>
             <a href="support.html" class="page-link" id="support-page-link">Support</a>
             <button class="toggle-color-theme" id="toggle-color-theme">☀</button>
-            
         </div>
 
-        <a href="archives.html" class="index-banner" id="entryHolder">
-            <h4 id="entryTitle">Loading...</h4>
-            <p id="entryText">Please wait while content loads.</p>
-            <p id="entrySource"></p>
-        </a>
+        <div class="archives-section">
+            
+            <div class="left-area">
+                <h4 class="left-list-title-top">Writing Categories</h4>
+            
+                
 
+                <div class="left-list">
+                    <h4 id="list-title-shorts" class="list-title"><span class="arrow">◄ </span>Short Stories</h4>
+                    <ul  id="list_shorts" class="hidden">
+    
+                    </ul>
+                </div>
+
+            <div class="left-list">
+                <h4 id="list-title-items" class="list-title"><span class="arrow">◄ </span>In Game Items</h4>
+                <ul  id="list_items" class="hidden">
+
+                </ul>
+            </div>
+
+
+        </div>
+            
+            <div class="right-area">
+                <h5 id="writingCategory" class="writing-category"></h5>
+                <h3 id="writingTitle" class="writing-title"></h3>
+                <div class="text-area" id="writingTextArea">
+                
+                </div>
+                <p id="writingCredit" class="writing-credit"></p>
+            </div>
+
+        </div>
+        
         <footer>
             <p>World and Website by Alexander Gorham | Seeking freelance writing, creative development, or worldbuilding collaborations.</p>
             <p class="copyright-text" id="copyright-text" data-author="Alexander Gorham">Copyright ©. All content and associated intellectual property are protected.</p>
         </footer>
-        
-</body>
 
+</body>
 
 </html>

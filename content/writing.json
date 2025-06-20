@@ -1,0 +1,91 @@
+[
+    {
+    "id": "",
+    "category": "Short Stories",
+    "title": "On The Superiority of Dwarvs",
+    "content": [
+        "In this entry into the Grand Compendium of Dwarven Superiority Vol III, I will explain and support through scientific methods why exactly the Dwarv organism is naturally superior to all other offshoots of Dwarg type creatures.",
+        "First, we shall start with the names. It is apparent that there is a single character difference between the name Dwarv and Dwarf (Dorf is not included, because that is not a real word nor name). ",
+        "Clearly, the “V” and the “f” characters mark the drastic difference between the types of creatures. The “V” is a character directly traceable back to Dwarg cave runes. (You can see that the Dwarv and the Cave both clearly share that character as much as they share heritage). With this simple fact, it is evident that the Dwarv alone is the direct descendant of the older people, while the Dwarf, lacking the “V” is in fact not.",
+        "Conversely, the Dwarf (and Dorf) were not blessed by this ancient lineage. Instead their names are formed with crude, likely Goblin rooted guttural utterings. I speak of course, of the “f” character. Note that I use the inferior version, not the superior “F”, as even though that larger character is superior, it is still not a V, and never actually features in the Dwarf name, so implicitly even there, the Dwarf is by necessity, an inferior creature.",
+        "Furthermore, it is evident that the letter “f”, being a more primal, goblin-esque character, visually represents its own status. The “f” is, if continued at its root, very close in shape to the “s” character but stretched, attempting to hide its origins, which you will all agree is the character with which the snake is implicitly represented. This suggests that the “f” represents a snake, but cut in half, to indicate that it should be eradicated and not allowed to persist. Moreover, whoever crafted this half snake letter, felt it needed further reinforcing as a letter not to be allowed, by adding the crossbar through the already severed snake, to indicate it as a forbidden entity.",
+        "And, following from this knowledge, it should be noted that the nature of the language used by the Dwarf creatures shares such degenerated form as their own title. They have words of their own - used frequently - such as “fumble”, “failure, “filth”... words that they require to accurately describe their everyday activities. And as you’ll know, words such as these do not exist naturally in the Dwarv lexicon of terms. This will stand - I’m sure you’ll agree - as further proof of the inferior nature of the Dwarfs.",
+        "With these facts, it is quite clear how the original Dwargs and older mountain folk felt that creatures like the Dwarfs should sit in the hierarchy of beings below the mountain.",
+        "Finally, as is well known, Dwarvs are genetically the tallest of the bunch, with the Dwarfs appearing childlike even to our own children. Of course, the status of the Dorfs needs barely considering.",
+        "It is heavily suggested that, if a citizen of the Dwarv tribe finds themselves to be under the expected height threshold of the Dwarv tribe, he or she should first consider if they are actually a Dwarv and not in fact an absent minded Dwarf who forgot their place in the world, because it is naturally impossible that a Dwarv should be shorter than even the tallest Dwarf, only by spiteful Dwarf spells can this ever happen.",
+        "If then, it is determined that the (temporarily) less than optimal Dwarv is sub par in verticality, he or she - being the more intelligent type - should immediately seek out the closest Foot Maester, and whisper to him of your need for greater status. He will understand right away, and produce the appropriate charms to counter this malicious spell cast upon you, which should be placed beneath your heels to elevate your sensitive parts from the cursed ground beneath you. It may be so that you require multiple charms to sufficiently elevate you above the curse.",
+        "Unfortunately, if the situation arises that you find yourself in need of more than 5 charms per foot, then the spell cast is too great, likely bolstered by goblin whispers. In this case you will be expelled from the tribe and sent to the pits, for fear that the spell may spread, or worse, the Dwarfs will learn of our spell evasion measures, and seek further, more devious tactics to undermine our superiority.",
+        "In conclusion, I hope you will see and agree that by scientific and natural methods, the Dwarv tribe has proven to be the superior type in comparison to the Dwarfs, and of course the Dorfs.",
+        "There are many other attributes and reasons why this is true, but name and vertical status are among the most obvious, although it may be challenging to convey even this to a Dwarf, so superiority and inferiority are generally just assumed and exuded, so that they understand their place beneath us. (Although they lack the greater intelligence of the Dwarv, so it remains possible that they remain blissfully unaware of their status, so if one finds the opportunity, it is suggested that they remind the Dwarfs of this.)"
+    ],
+    "credit" : "A treatise extracted from the preserved ramblings of Hruvdar Stonetongue, Third Seer of the Dwarv Lineage Archives, dated approximately 412 winters before the Bleeding Collapse"
+    
+  },
+  {
+    "id": "",
+    "category": "In Game Items",
+    "title": "Sketh Dagger",
+    "content": [
+      "Name: Sketh Dagger",
+      "Weight: Light",
+      "Type: Dagger",
+      "A keen, light blade forged in the pits of Drakhil. Hewn to a finery fit to carve through shadows.",
+      "'The Gurgles of torn throats speak louder than the blades of Sketh.'"
+    ],
+    "credit" : ""
+  },
+  {
+    "id": "",
+    "category": "In Game Items",
+    "title": "Mad Baron’s Cleaver",
+    "content": [
+      "Name: Mad Baron’s Cleaver",
+      "Weight: Heavy",
+      "Type: Greathammer",
+      "A hefty slab of rough steel scraped to a dull edge. Once the tool of Krhaptis, Baron of Drakhil. Used to dispatch those who spoke out.",
+      "'They say the edge was first keen, dulled by Krhaptis to further pain his enemies.'"
+    ],
+    "credit" : ""
+  },
+  {
+    "id": "",
+    "category": "In Game Items",
+    "title": "Drakhil Guard’s Broadsword",
+    "content": [
+      "Name: Drakhil Guard’s Broadsword",
+      "Weight: Medium",
+      "Type: Sword",
+      "An unremarkable, but reliable blade built to defend Drakhil from the creatures beyond.",
+      "'There was nothing to say of these blades, except that they fulfilled their roles without question.'"
+    ],
+    "credit" : ""
+  },
+  {
+    "id": "",
+    "category": "In Game Items",
+    "title": "Towerman’s Strikesword",
+    "content": [
+      "Name: Towerman’s Strikesword",
+      "Weight: Heavy",
+      "Type: Greatsword",
+      "A mighty blade crafted for Towermen. Heavy and without grace. Slow to swing, but sure to damage whatever it falls upon.",
+      "'If the towers fell, something surely would be destroyed. What exactly, is down to fate.'"
+    ],
+    "credit" : ""
+  },
+  {
+    "id": "",
+    "category": "In Game Items",
+    "title": "Woodsman’s Bow",
+    "content": [
+      "Name: Woodsman’s Bow",
+      "Weight: Medium",
+      "Type: Bow",
+      "A reliable bow, designed not for finery or display, only for accuracy and range. Given a full draw, any arrow will strike with harshness.",
+      "'I fear the man hidden in the trees, for he surely knows them better than I, and he wields their crafts.'"
+    ],
+    "credit" : ""
+  }
+
+
+]

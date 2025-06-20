@@ -400,6 +400,16 @@ html.light-theme .right-area{
     display: flex;
     flex-direction: column;
     align-items: center;
+   width: 80%;
+    max-width: 40rem;
+}
+
+@media screen and (min-width: 750px){
+    .index-banner{
+        min-width: 40rem;
+    }
+
+    
 }
 
 
@@ -420,6 +430,11 @@ html.light-theme .index-banner{
 .index-banner p
 {
     margin: 0.5rem;
+}
+#entrySource{
+    width: 80%;
+    text-align: end;
+    font-style: italic;
 }
 
 .left-list-title-top{
