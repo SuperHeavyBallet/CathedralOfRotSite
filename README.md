@@ -11,6 +11,11 @@ This repo serves as:
 - A data source for the accompanying website and creative projects
 - A reference for collaboration, portfolio, and creative development inquiries
 
+## TODO
+
+- I want to structure the site more for longer form blog/essay content, seperate from segmented text
+- New page perhaps to replace MUD - Mud does very little, maybe hide but not remove entirely
+
 ## 🛑 Copyright & Intellectual Property
 
 **© 2025 Alexander Gorham. All content, including names, world concepts, and written entries, is protected under international copyright law.**
