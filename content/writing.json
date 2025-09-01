@@ -85,6 +85,15 @@
       "'I fear the man hidden in the trees, for he surely knows them better than I, and he wields their crafts.'"
     ],
     "credit" : ""
+  },
+  {
+    "id": "",
+    "category": "Blogs",
+    "title": "Test Blog Post",
+    "content": [
+      "A Test Blog Post"
+    ],
+    "credit" : ""
   }
 
 

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let writingData = [];
-    
+    const list_Blogs = document.getElementById('list_blogs');
     const list_ShortStories = document.getElementById('list_shorts');
     const list_Items = document.getElementById('list_items');
 
@@ -13,10 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     FetchWritingContent();
 
+    const list_Title_Blogs = document.getElementById("list-title-blogs");
     const list_Title_ShortStories = document.getElementById("list-title-shorts");
     const list_Title_Items = document.getElementById("list-title-items");
 
     const listTitles = [
+        list_Title_Blogs,
         list_Title_ShortStories,
         list_Title_Items
     ];
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
             AssignID(writingData);
             console.log(writingData);
 
-            
+            PopulateList(list_Blogs, "Blogs");
             PopulateList(list_ShortStories, "Short Stories");
             PopulateList(list_Items, "In Game Items");
    
@@ -160,6 +162,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         
 
+    }
+
+    function GetPageReferences()
+    {
+        
     }
 
 });
